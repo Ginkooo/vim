@@ -9,11 +9,16 @@ filetype plugin indent on
 
 set nobackup
 set noswapfile
-map <leader>e <ESC>:bd<CR>
+
+autocmd BufWritePost *.py call Flake8()
 
 let g:completor_python_binary = '/usr/bin/python3'
 let g:completor_node_binary = '/usr/bin/node'
 let g:completor_clang_binary = '/usr/bin/clang'
+
+inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+inoremap <expr> <cr> pumvisible() ? "\<C-y>\<cr>" : "\<cr>"
 
 let g:airline_theme='powerlineish'
 let g:airline_left_sep=''
@@ -150,6 +155,8 @@ nmap <leader>t <F2>:enew<CR>
 nmap <leader>k <F2>:bnext!<CR>
 nmap <leader>j <F2>:bprevious!<CR>
 nmap <leader>q <F2>:bp <BAR> bd #<CR>
+map <leader>e <ESC>:bd<CR>
+nmap <leader>i :Pydocstring<CR>
 
 nmap <C-J> <C-F>
 nmap <C-K> <C-B>
