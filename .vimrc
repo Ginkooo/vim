@@ -11,6 +11,10 @@ set nobackup
 set noswapfile
 map <leader>e <ESC>:bd<CR>
 
+let g:completor_python_binary = '/usr/bin/python3'
+let g:completor_node_binary = '/usr/bin/node'
+let g:completor_clang_binary = '/usr/bin/clang'
+
 let g:airline_theme='powerlineish'
 let g:airline_left_sep=''
 let g:airline_right_sep=''
