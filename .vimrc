@@ -10,8 +10,6 @@ filetype plugin indent on
 set nobackup
 set noswapfile
 
-autocmd BufWritePost *.py call Flake8()
-
 let g:completor_python_binary = '/usr/bin/python3'
 let g:completor_node_binary = '/usr/bin/node'
 let g:completor_clang_binary = '/usr/bin/clang'
