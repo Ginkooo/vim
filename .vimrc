@@ -3,8 +3,6 @@ set autochdir
 set nocompatible
 filetype plugin on
 
-set rtp+=/home/ginkooo/.vim/bundle/Vundle.vim
-
 filetype plugin indent on
 
 set nobackup
@@ -103,7 +101,7 @@ set gdefault
 
 set hidden
 set undofile
-set undodir=/home/ginkooo/.vim/undo
+set undodir=/home/ginko/.vim/undo
 
 
 nmap <F1> <nop>
