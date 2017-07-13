@@ -30,13 +30,13 @@ set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
+autocmd VimEnter * SyntasticToggleMode
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_open = 0
 let g:syntastic_check_on_wq = 0
 let g:syntastic_php_cheskers = ['php']
 
-map <F3> <ESC>:Autoformat<CR>
 
 colorscheme badwolf
 set guifont=Hack:h8:cEASTEUROPE
@@ -166,3 +166,8 @@ nnoremap <TAB> %
 vnoremap <TAB> %
 
 inoremap jj <ESC>
+noremap zz :wq<CR>
+
+
+nmap <leader>f :Autoformat<CR>
+nmap <leader>c :SyntasticCheck<CR>
