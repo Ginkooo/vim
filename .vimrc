@@ -7,7 +7,6 @@ filetype plugin indent on
 
 set nobackup
 set noswapfile
-set hidden
 
 let g:completor_python_binary = '/usr/bin/python3.6'
 let g:completor_node_binary = '/usr/bin/node'
@@ -147,8 +146,8 @@ inoremap <left> <nop>
 inoremap <right> <nop>
 
 nmap <leader>t <F2>:enew<CR>
-nmap <leader>k <F2>:bnext!<CR>
-nmap <leader>j <F2>:bprevious!<CR>
+nmap <leader>k :bnext!<CR>
+nmap <leader>j :bprevious!<CR>
 nmap <leader>q <F2>:bp <BAR> bd #<CR>
 map <leader>e <ESC>:bd<CR>
 nmap <leader>i :Pydocstring<CR>
