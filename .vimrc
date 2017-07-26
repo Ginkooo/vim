@@ -7,8 +7,9 @@ filetype plugin indent on
 
 set nobackup
 set noswapfile
+set hidden
 
-let g:completor_python_binary = '/usr/bin/python3'
+let g:completor_python_binary = '/usr/bin/python3.6'
 let g:completor_node_binary = '/usr/bin/node'
 let g:completor_clang_binary = '/usr/bin/clang'
 
@@ -35,7 +36,9 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 0
 let g:syntastic_check_on_wq = 0
-let g:syntastic_php_cheskers = ['php']
+let g:syntastic_php_checkers = ['php']
+let g:syntastic_cpp_compiler = 'clang++'
+let g:syntastic_cpp_compiler_options = ' --std=c++14'
 
 
 colorscheme badwolf
@@ -149,6 +152,7 @@ nmap <leader>j <F2>:bprevious!<CR>
 nmap <leader>q <F2>:bp <BAR> bd #<CR>
 map <leader>e <ESC>:bd<CR>
 nmap <leader>i :Pydocstring<CR>
+nmap <leader>d :Dox<CR>
 
 nmap <C-J> <C-F>
 nmap <C-K> <C-B>
@@ -170,4 +174,4 @@ noremap zz :wq<CR>
 
 
 nmap <leader>f :Autoformat<CR>
-nmap <leader>c :SyntasticCheck<CR>
+nmap <leader>c :w<CR>:SyntasticCheck<CR>
