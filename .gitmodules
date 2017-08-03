@@ -37,3 +37,6 @@
 [submodule "pack/plugins/start/vim-wakatime"]
 	path = pack/plugins/start/vim-wakatime
 	url = https://github.com/wakatime/vim-wakatime
+[submodule "pack/plugins/start/ale"]
+	path = pack/plugins/start/ale
+	url = https://github.com/w0rp/ale

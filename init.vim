@@ -8,7 +8,9 @@ filetype plugin indent on
 set nobackup
 set noswapfile
 
-let g:completor_python_binary = '/usr/bin/python3.6'
+set shell=/bin/bash
+
+let g:completor_python_binary = '/usr/local/bin/python3.6'
 let g:completor_node_binary = '/usr/bin/node'
 let g:completor_clang_binary = '/usr/bin/clang'
 
@@ -25,20 +27,6 @@ let g:airline#extensions#tabline#right_sep=''
 let g:airline#extensions#bufferline#enabled=0
 let g:airline#extensions#tabline#enabled=1
 let g:airline#extensions#tabline#fnamemod=':t'
-
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-
-autocmd VimEnter * SyntasticToggleMode
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 0
-let g:syntastic_check_on_wq = 0
-let g:syntastic_php_checkers = ['php']
-let g:syntastic_cpp_compiler = 'clang++'
-let g:syntastic_cpp_compiler_options = ' --std=c++14'
-
 
 colorscheme badwolf
 set guifont=Hack:h8:cEASTEUROPE
@@ -103,7 +91,7 @@ set gdefault
 
 set hidden
 set undofile
-set undodir=/home/ginko/.vim/undo
+set undodir=/home/pczajka/.vim/undo
 
 
 nmap <F1> <nop>
@@ -173,4 +161,3 @@ noremap zz :wq<CR>
 
 
 nmap <leader>f :Autoformat<CR>
-nmap <leader>c :w<CR>:SyntasticCheck<CR>

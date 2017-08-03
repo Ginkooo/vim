@@ -11,3 +11,4 @@ git submodule add https://github.com/jistr/vim-nerdtree-tabs
 git submodule add https://github.com/heavenshell/vim-pydocstring
 git submodule add https://github.com/mhinz/vim-startify
 git submodule add https://github.com/wakatime/vim-wakatime
+git submodule add https://github.com/w0rp/ale
