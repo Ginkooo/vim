@@ -136,7 +136,7 @@ inoremap <right> <nop>
 nmap <leader>t <F2>:enew<CR>
 nmap <leader>k :bnext!<CR>
 nmap <leader>j :bprevious!<CR>
-nmap <leader>q <F2>:bp <BAR> bd #<CR>
+nmap <leader>q :bp <BAR> bd #<CR>
 map <leader>e <ESC>:bd<CR>
 nmap <leader>i :Pydocstring<CR>
 nmap <leader>d :Dox<CR>
