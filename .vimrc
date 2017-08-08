@@ -133,7 +133,7 @@ inoremap <down> <nop>
 inoremap <left> <nop>
 inoremap <right> <nop>
 
-nmap <leader>t <F2>:enew<CR>
+nmap <leader>t :enew<CR>
 nmap <leader>k :bnext!<CR>
 nmap <leader>j :bprevious!<CR>
 nmap <leader>q :bp <BAR> bd #<CR>
