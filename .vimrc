@@ -35,7 +35,6 @@ set guioptions-=r
 set guioptions-=L
 
 let mapleader="\<Space>"
-set guiheadroom=0
 set enc=utf-8
 set fenc=utf-8
 set termencoding=utf-8
@@ -91,7 +90,7 @@ set gdefault
 
 set hidden
 set undofile
-set undodir=/home/pczajka/.vim/undo
+set undodir=/home/ginkooo/.vim/undo
 
 
 nmap <F1> <nop>
@@ -139,6 +138,7 @@ nmap <leader>j :bprevious!<CR>
 nmap <leader>q :bp <BAR> bd #<CR>
 map <leader>e <ESC>:bd<CR>
 nmap <leader>i :Pydocstring<CR>
+nmap <leader>js :call JSDocAdd()<CR>
 nmap <leader>d :Dox<CR>
 
 nmap <C-J> <C-F>
