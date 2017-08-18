@@ -18,6 +18,20 @@ inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 inoremap <expr> <cr> pumvisible() ? "\<C-y>\<cr>" : "\<cr>"
 
+
+" The Silver Searcher
+if executable('ag')
+  " Use ag over grep
+  set grepprg=ag\ --nogroup\ --nocolor
+
+  " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
+  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+
+  " ag is fast enough that CtrlP doesn't need to cache
+  let g:ctrlp_use_caching = 0
+endif
+
+
 let g:airline_theme='powerlineish'
 let g:airline_left_sep=''
 let g:airline_right_sep=''
@@ -132,18 +146,27 @@ inoremap <down> <nop>
 inoremap <left> <nop>
 inoremap <right> <nop>
 
-nmap <leader>t :enew<CR>
-nmap <leader>k :bnext!<CR>
-nmap <leader>j :bprevious!<CR>
-nmap <leader>q :bp <BAR> bd #<CR>
+nnoremap <leader>t :enew<CR>
+nnoremap <leader>k :bnext!<CR>
+nnoremap <leader>j :bprevious!<CR>
+nnoremap <leader>q :bp <BAR> bd #<CR>
 map <leader>e <ESC>:bd<CR>
-nmap <leader>i :Pydocstring<CR>
-nmap <leader>js :call JSDocAdd()<CR>
-nmap <leader>d :Dox<CR>
-nmap <leader>m :vsplit<CR>
-nmap <leader>[ :vertical resize +10<CR>
-nmap <leader>] :vertical resize -10<CR>
-nmap <leader>, <C-w>q
+nnoremap <leader>i :Pydocstring<CR>
+nnoremap <leader>js :call JSDocAdd()<CR>
+nnoremap <leader>d :Dox<CR>
+nnoremap <leader>m :vsplit<CR>
+nnoremap <leader>[ :vertical resize +10<CR>
+nnoremap <leader>] :vertical resize -10<CR>
+nnoremap <leader>, <C-w>q
+nnoremap <leader>U <C-w>k
+nnoremap <leader>M <C-w>j
+
+" movement in quickfix
+nmap <leader>; :grep! "\b<C-R><C-W>\b" *<CR>:cw<CR>
+nmap [q :cprev<CR>
+nmap ]q :cnext<CR>
+nmap [Q :cfirst<CR>
+nmap ]Q :clast<CR>
 
 nmap <C-J> <C-F>
 nmap <C-K> <C-B>
@@ -154,8 +177,6 @@ map <C-O> o<ESC>ko
 
 vmap v <plug>(expand_region_expand)
 vmap <C-V> <plug>(expand_region_shrink)
-
-map <leader>u :BufstopFast<CR>
 
 nnoremap <TAB> %
 vnoremap <TAB> %

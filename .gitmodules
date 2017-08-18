@@ -40,3 +40,9 @@
 [submodule "pack/plugins/start/ale"]
 	path = pack/plugins/start/ale
 	url = https://github.com/w0rp/ale
+[submodule "pack/plugins/start/vim-esearch"]
+	path = pack/plugins/start/vim-esearch
+	url = https://github.com/eugen0329/vim-esearch
+[submodule "pack/plugins/start/fzf.vim"]
+	path = pack/plugins/start/fzf.vim
+	url = https://github.com/junegunn/fzf.vim
