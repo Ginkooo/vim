@@ -140,6 +140,10 @@ map <leader>e <ESC>:bd<CR>
 nmap <leader>i :Pydocstring<CR>
 nmap <leader>js :call JSDocAdd()<CR>
 nmap <leader>d :Dox<CR>
+nmap <leader>m :vsplit<CR>
+nmap <leader>[ :vertical resize +10<CR>
+nmap <leader>] :vertical resize -10<CR>
+nmap <leader>, <C-w>q
 
 nmap <C-J> <C-F>
 nmap <C-K> <C-B>
