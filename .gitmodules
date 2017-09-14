@@ -46,3 +46,9 @@
 [submodule "pack/plugins/start/fzf.vim"]
 	path = pack/plugins/start/fzf.vim
 	url = https://github.com/junegunn/fzf.vim
+[submodule "pack/plugins/start/deoplete.nvim"]
+	path = pack/plugins/start/deoplete.nvim
+	url = https://github.com/Shougo/deoplete.nvim
+[submodule "pack/plugins/start/deoplete-jedi"]
+	path = pack/plugins/start/deoplete-jedi
+	url = https://github.com/zchee/deoplete-jedi

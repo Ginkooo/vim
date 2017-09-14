@@ -10,14 +10,11 @@ set noswapfile
 
 set shell=/bin/bash
 
-let g:completor_python_binary = '/usr/local/bin/python3.6'
-let g:completor_node_binary = '/usr/bin/node'
-let g:completor_clang_binary = '/usr/bin/clang'
-
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 inoremap <expr> <cr> pumvisible() ? "\<C-y>\<cr>" : "\<cr>"
 
+let g:deoplete#enable_at_startup = 1
 
 " The Silver Searcher
 if executable('ag')
