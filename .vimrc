@@ -14,7 +14,15 @@ inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 inoremap <expr> <cr> pumvisible() ? "\<C-y>\<cr>" : "\<cr>"
 
+autocmd CompleteDone * silent! pclose!
+" Close window after completion
+
+let g:ale_python_flake8_executable = 'python3'
+let g:ale_python_flake8_options = '-m flake8'
+
 let g:deoplete#enable_at_startup = 1
+
+let g:deoplete#sources#jedi#show_docstring = 1
 
 " The Silver Searcher
 if executable('ag')
