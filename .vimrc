@@ -17,6 +17,44 @@ inoremap <expr> <cr> pumvisible() ? "\<C-y>\<cr>" : "\<cr>"
 autocmd CompleteDone * silent! pclose!
 " Close window after completion
 
+
+call plug#begin()
+
+Plug 'W0rp/ale'
+Plug 'sjl/badwolf'
+Plug 'kien/ctrlp.vim'
+Plug 'Shougo/deoplete.nvim'
+Plug 'zchee/deoplete-jedi'
+Plug 'scrooloose/nerdtree'
+Plug 'heavenshell/vim-jsdoc'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'bling/vim-bufferline'
+Plug 'ap/vim-css-color'
+Plug 'jistr/vim-nerdtree-tabs'
+Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
+Plug 'heavenshell/vim-pydocstring'
+Plug 'mhinz/vim-startify'
+
+call plug#end()
+
+
+
+function! WriteDocstring()
+	if (&ft=='python')
+		:Pydocstring
+	endif
+
+	if (&ft=='javascript')
+		:JsDoc
+	endif
+endfunction
+
+
+
+let g:deoplete#sources#ternjs#docs = 1
+
+
 let g:ale_python_flake8_executable = 'python3'
 let g:ale_python_flake8_options = '-m flake8'
 
@@ -109,7 +147,7 @@ set gdefault
 
 set hidden
 set undofile
-set undodir=/home/ginkooo/.vim/undo
+set undodir=~/.vim/undo
 
 
 nmap <F1> <nop>
@@ -156,9 +194,7 @@ nnoremap <leader>k :bnext!<CR>
 nnoremap <leader>j :bprevious!<CR>
 nnoremap <leader>q :bp <BAR> bd #<CR>
 map <leader>e <ESC>:bd<CR>
-nnoremap <leader>i :Pydocstring<CR>
-nnoremap <leader>js :call JSDocAdd()<CR>
-nnoremap <leader>d :Dox<CR>
+nnoremap <leader>d :call WriteDocstring()<CR>
 nnoremap <leader>m :vsplit<CR>
 nnoremap <leader>[ :vertical resize +10<CR>
 nnoremap <leader>] :vertical resize -10<CR>
@@ -187,7 +223,3 @@ nnoremap <TAB> %
 vnoremap <TAB> %
 
 inoremap jj <ESC>
-noremap zz :wq<CR>
-
-
-nmap <leader>f :Autoformat<CR>
