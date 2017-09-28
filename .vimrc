@@ -10,12 +10,6 @@ set noswapfile
 
 set shell=/bin/bash
 
-inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
-inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-inoremap <expr> <cr> pumvisible() ? "\<C-y>\<cr>" : "\<cr>"
-
-autocmd CompleteDone * silent! pclose!
-" Close window after completion
 
 
 call plug#begin()
@@ -32,27 +26,46 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'bling/vim-bufferline'
 Plug 'ap/vim-css-color'
 Plug 'jistr/vim-nerdtree-tabs'
-Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
 Plug 'heavenshell/vim-pydocstring'
+Plug 'ternjs/tern_for_vim', { 'for': ['javascript', 'javascript.jsx'], 'do': 'npm install' }
+Plug 'carlitux/deoplete-ternjs', { 'for': ['javascript', 'javascript.jsx'], 'do': 'npm install -g tern' }
+Plug 'othree/jspc.vim', { 'for': ['javascript', 'javascript.jsx'] }
 Plug 'mhinz/vim-startify'
+Plug 'SirVer/ultisnips'
+Plug 'tobyS/vmustache'
+Plug 'tobyS/pdv'
+Plug 'Valloric/MatchTagAlways'
 
 call plug#end()
+
+
+inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+inoremap <expr> <cr> pumvisible() ? "\<C-y>\<cr>" : "\<cr>"
+
+autocmd CompleteDone * silent! pclose!
+" Close window after completion
 
 
 
 function! WriteDocstring()
 	if (&ft=='python')
-		:Pydocstring
+		Pydocstring
 	endif
 
 	if (&ft=='javascript')
-		:JsDoc
+		JsDoc
 	endif
+
+    if (&ft=='php')
+        call pdv#DocumentWithSnip()
+    endif
 endfunction
 
 
 
 let g:deoplete#sources#ternjs#docs = 1
+let g:deoplete#sources#ternjs#types = 1
 
 
 let g:ale_python_flake8_executable = 'python3'
@@ -61,6 +74,8 @@ let g:ale_python_flake8_options = '-m flake8'
 let g:deoplete#enable_at_startup = 1
 
 let g:deoplete#sources#jedi#show_docstring = 1
+
+let g:pdv_template_dir = $HOME ."/.vim/plugged/pdv/templates_snip"
 
 " The Silver Searcher
 if executable('ag')
@@ -101,6 +116,7 @@ set fileencoding=utf-8
 set autoindent
 set smartindent
 
+set expandtab
 set shiftwidth=4
 set tabstop=4
 
@@ -223,3 +239,5 @@ nnoremap <TAB> %
 vnoremap <TAB> %
 
 inoremap jj <ESC>
+
+let g:UltiSnipsExpandTrigger =  'nothing'
