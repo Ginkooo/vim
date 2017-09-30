@@ -244,6 +244,6 @@ inoremap jj <ESC>
 let g:UltiSnipsExpandTrigger =  'nothing'
 
 
-nnoremap <leader>i :Gpl<CR>
+nnoremap <leader>i :Apache<CR>
 let g:licenses_copyright_holders_name = 'Piotr Czajka <piotr_czajka@protonmail.com>'
 let g:licenses_authors_name = 'Piotr Czajka <piotr_czajka@protonmail>'
