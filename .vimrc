@@ -246,5 +246,5 @@ let g:UltiSnipsExpandTrigger =  'nothing'
 
 
 nnoremap <leader>i :Gpl<CR>
-let g:licenses_copyright_holders_name = 'Piotr Czajka <digitalplasma@protonmail.com>'
-let g:licenses_authors_name = 'Piotr Czajka <digitalplasma@protonmail.com>'
+let g:licenses_copyright_holders_name = 'Piotr Czajka <czajka@protonmail.com>'
+let g:licenses_authors_name = 'Piotr Czajka <czajka@protonmail.com>'
