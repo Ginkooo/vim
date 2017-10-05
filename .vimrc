@@ -36,6 +36,7 @@ Plug 'tobyS/vmustache'
 Plug 'tobyS/pdv'
 Plug 'Valloric/MatchTagAlways'
 Plug 'antoyo/vim-licenses'
+Plug 'Valloric/MatchTagAlways'
 
 call plug#end()
 
@@ -244,6 +245,6 @@ inoremap jj <ESC>
 let g:UltiSnipsExpandTrigger =  'nothing'
 
 
-nnoremap <leader>i :Apache<CR>
-let g:licenses_copyright_holders_name = 'Piotr Czajka <piotr_czajka@protonmail.com>'
-let g:licenses_authors_name = 'Piotr Czajka <piotr_czajka@protonmail>'
+nnoremap <leader>i :Gpl<CR>
+let g:licenses_copyright_holders_name = 'Piotr Czajka <digitalplasma@protonmail.com>'
+let g:licenses_authors_name = 'Piotr Czajka <digitalplasma@protonmail.com>'

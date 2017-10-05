@@ -1,1 +1,1 @@
-/home/ginkooo/.vim/.vimrc
+.vimrc
