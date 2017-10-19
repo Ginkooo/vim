@@ -1,3 +1,19 @@
+" Copyright (C) 2017  Piotr Czajka <czajka@protonmail.com>
+" Author: Piotr Czajka <czajka@protonmail.com>
+"
+" This program is free software: you can redistribute it and/or modify
+" it under the terms of the GNU General Public License as published by
+" the Free Software Foundation, either version 3 of the License, or
+" (at your option) any later version.
+"
+" This program is distributed in the hope that it will be useful,
+" but WITHOUT ANY WARRANTY; without even the implied warranty of
+" MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+" GNU General Public License for more details.
+"
+" You should have received a copy of the GNU General Public License
+" along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
 set autochdir
 
 set nocompatible
@@ -37,6 +53,9 @@ Plug 'tobyS/pdv'
 Plug 'Valloric/MatchTagAlways'
 Plug 'antoyo/vim-licenses'
 Plug 'Valloric/MatchTagAlways'
+Plug 'rust-lang/rust.vim'
+Plug 'sebastianmarkow/deoplete-rust'
+Plug 'zchee/deoplete-clang'
 
 call plug#end()
 
@@ -48,6 +67,11 @@ inoremap <expr> <cr> pumvisible() ? "\<C-y>\<cr>" : "\<cr>"
 autocmd CompleteDone * silent! pclose!
 " Close window after completion
 
+
+
+" Clang deoplete config
+let g:deoplete#sources#clang#libclang_path = '/usr/lib/libclang.so'
+let g:deoplete#sources#clang#clang_header = '/usr/lib/clang'
 
 
 function! WriteDocstring()
@@ -62,8 +86,25 @@ function! WriteDocstring()
     if (&ft=='php')
         call pdv#DocumentWithSnip()
     endif
+
+    if (&ft=='cpp')
+        Dox
+    endif
+
+    if (&ft=='c')
+        Dox
+    endif
 endfunction
 
+
+
+" RUST CONFIG
+let g:deoplete#sources#rust#racer_binary = $HOME . '/.cargo/bin/racer'
+let g:deoplete#sources#rust#rust_source_path = '/opt/rust/src'
+"let g:deoplete#sources#rust#disable_keymap = 1
+let g:deoplete#sources#rust#documentation_max_height = 20
+let g:ale_linters = {'rust': ['rls', 'rustc']}
+let g:ale_rust_rls_executable = $HOME . '/.cargo/bin/rls'
 
 
 let g:deoplete#sources#ternjs#docs = 1
