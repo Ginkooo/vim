@@ -56,6 +56,8 @@ Plug 'Valloric/MatchTagAlways'
 Plug 'rust-lang/rust.vim'
 Plug 'sebastianmarkow/deoplete-rust'
 Plug 'zchee/deoplete-clang'
+Plug 'mattn/emmet-vim'
+Plug 'farfanoide/vim-kivy'
 
 call plug#end()
 
@@ -72,6 +74,8 @@ autocmd CompleteDone * silent! pclose!
 " Clang deoplete config
 let g:deoplete#sources#clang#libclang_path = '/usr/lib/libclang.so'
 let g:deoplete#sources#clang#clang_header = '/usr/lib/clang'
+let g:deoplete#sources#clang#flags = ['-F/usr/include/qt/**']
+let g:deoplete#sources#clang#std = {'cpp': 'c++17'}
 
 
 function! WriteDocstring()
@@ -96,6 +100,30 @@ function! WriteDocstring()
     endif
 endfunction
 
+
+
+
+
+" Hex editor vim
+let g:hexmode = 0
+function ToggleHexMode()
+    if (g:hexmode == 0)
+        %!xxd
+        let g:hexmode = 1
+    endif
+
+    if (g:hexmode == 1)
+        %!xxd -r
+        let g:hexmode = 0
+    endif
+endfunction
+
+
+command Hex call ToggleHexMode()
+
+
+"emmet config
+let g:user_emmet_leader_key='<leader>f'
 
 
 " RUST CONFIG
@@ -252,7 +280,6 @@ nnoremap <leader>t :enew<CR>
 nnoremap <leader>k :bnext!<CR>
 nnoremap <leader>j :bprevious!<CR>
 nnoremap <leader>q :bp <BAR> bd #<CR>
-map <leader>e <ESC>:bd<CR>
 nnoremap <leader>d :call WriteDocstring()<CR>
 nnoremap <leader>m :vsplit<CR>
 nnoremap <leader>[ :vertical resize +10<CR>
@@ -260,6 +287,8 @@ nnoremap <leader>] :vertical resize -10<CR>
 nnoremap <leader>, <C-w>q
 nnoremap <leader>U <C-w>k
 nnoremap <leader>M <C-w>j
+nnoremap <leader>e :w<CR>ggi#!/usr/bin/env python<CR><ESC>:!chmod u+x %<CR><CR><CR>
+nnoremap <leader>E :!./%<CR>
 
 " movement in quickfix
 nmap <leader>; :grep! "\b<C-R><C-W>\b" *<CR>:cw<CR>
