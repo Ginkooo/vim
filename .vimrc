@@ -105,14 +105,14 @@ endfunction
 
 
 " Hex editor vim
-let g:hexmode = 0
+let b:hexmode = 0
 function ToggleHexMode()
-    if (g:hexmode == 0)
+    if (b:hexmode == 0)
         %!xxd
-        let g:hexmode = 1
+        let b:hexmode = 1
     else
         %!xxd -r
-        let g:hexmode = 0
+        let b:hexmode = 0
     endif
 endfunction
 
@@ -122,6 +122,7 @@ command Hex call ToggleHexMode()
 
 "emmet config
 let g:user_emmet_leader_key='<leader>f'
+let g:user_emmet_mode='n'
 
 
 " RUST CONFIG
@@ -152,7 +153,7 @@ if executable('ag')
   set grepprg=ag\ --nogroup\ --nocolor
 
   " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
-  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
 
   " ag is fast enough that CtrlP doesn't need to cache
   let g:ctrlp_use_caching = 0
@@ -264,15 +265,6 @@ nnoremap <CR> G
 nnoremap <leader>l <C-W><C-L>
 nnoremap <leader>h <C-W><C-H>
 nnoremap <leader>= <C-W>=
-
-nnoremap <up> <nop>
-nnoremap <down> <nop>
-nnoremap <left> <nop>
-nnoremap <right> <nop>
-inoremap <up> <nop>
-inoremap <down> <nop>
-inoremap <left> <nop>
-inoremap <right> <nop>
 
 nnoremap <leader>t :enew<CR>
 nnoremap <leader>k :bnext!<CR>
