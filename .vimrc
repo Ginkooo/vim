@@ -110,9 +110,7 @@ function ToggleHexMode()
     if (g:hexmode == 0)
         %!xxd
         let g:hexmode = 1
-    endif
-
-    if (g:hexmode == 1)
+    else
         %!xxd -r
         let g:hexmode = 0
     endif
