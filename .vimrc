@@ -34,7 +34,6 @@ Plug 'W0rp/ale'
 Plug 'sjl/badwolf'
 Plug 'kien/ctrlp.vim'
 Plug 'Shougo/deoplete.nvim'
-Plug 'zchee/deoplete-jedi'
 Plug 'scrooloose/nerdtree'
 Plug 'heavenshell/vim-jsdoc'
 Plug 'vim-airline/vim-airline'
@@ -46,10 +45,8 @@ Plug 'heavenshell/vim-pydocstring'
 Plug 'ternjs/tern_for_vim', { 'for': ['javascript', 'javascript.jsx'], 'do': 'npm install' }
 Plug 'carlitux/deoplete-ternjs', { 'for': ['javascript', 'javascript.jsx'], 'do': 'npm install -g tern' }
 Plug 'othree/jspc.vim', { 'for': ['javascript', 'javascript.jsx'] }
-Plug 'mhinz/vim-startify'
-Plug 'SirVer/ultisnips'
-Plug 'tobyS/vmustache'
-Plug 'tobyS/pdv'
+" Plug 'SirVer/ultisnips' snipetts in vim, useful to learn
+" Plug 'tobyS/pdv' php documentator plugin, not really used. Should learn
 Plug 'Valloric/MatchTagAlways'
 Plug 'antoyo/vim-licenses'
 Plug 'Valloric/MatchTagAlways'
@@ -58,6 +55,7 @@ Plug 'sebastianmarkow/deoplete-rust'
 Plug 'zchee/deoplete-clang'
 Plug 'mattn/emmet-vim'
 Plug 'farfanoide/vim-kivy'
+Plug 'davidhalter/jedi-vim'
 
 call plug#end()
 
