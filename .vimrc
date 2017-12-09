@@ -33,7 +33,6 @@ call plug#begin()
 Plug 'W0rp/ale'
 Plug 'sjl/badwolf'
 Plug 'kien/ctrlp.vim'
-Plug 'Shougo/deoplete.nvim'
 Plug 'scrooloose/nerdtree'
 Plug 'heavenshell/vim-jsdoc'
 Plug 'vim-airline/vim-airline'
@@ -43,7 +42,6 @@ Plug 'ap/vim-css-color'
 Plug 'jistr/vim-nerdtree-tabs'
 Plug 'heavenshell/vim-pydocstring'
 Plug 'ternjs/tern_for_vim', { 'for': ['javascript', 'javascript.jsx'], 'do': 'npm install' }
-Plug 'carlitux/deoplete-ternjs', { 'for': ['javascript', 'javascript.jsx'], 'do': 'npm install -g tern' }
 Plug 'othree/jspc.vim', { 'for': ['javascript', 'javascript.jsx'] }
 " Plug 'SirVer/ultisnips' snipetts in vim, useful to learn
 " Plug 'tobyS/pdv' php documentator plugin, not really used. Should learn
@@ -51,11 +49,9 @@ Plug 'Valloric/MatchTagAlways'
 Plug 'antoyo/vim-licenses'
 Plug 'Valloric/MatchTagAlways'
 Plug 'rust-lang/rust.vim'
-Plug 'sebastianmarkow/deoplete-rust'
-Plug 'zchee/deoplete-clang'
 Plug 'mattn/emmet-vim'
 Plug 'farfanoide/vim-kivy'
-Plug 'davidhalter/jedi-vim'
+Plug 'maralla/completor.vim'
 
 call plug#end()
 
@@ -69,11 +65,12 @@ autocmd CompleteDone * silent! pclose!
 
 
 
-" Clang deoplete config
-let g:deoplete#sources#clang#libclang_path = '/usr/lib/libclang.so'
-let g:deoplete#sources#clang#clang_header = '/usr/lib/clang'
-let g:deoplete#sources#clang#flags = ['-F/usr/include/qt/**']
-let g:deoplete#sources#clang#std = {'cpp': 'c++17'}
+" Completor stuff
+
+let g:completor_min_chars = 0
+let g:completor_auto_close_doc = 0
+
+let g:completor_python_binary = "/usr/bin/python3"
 
 
 function! WriteDocstring()
@@ -123,26 +120,6 @@ let g:user_emmet_leader_key='<leader>f'
 let g:user_emmet_mode='n'
 
 
-" RUST CONFIG
-let g:deoplete#sources#rust#racer_binary = $HOME . '/.cargo/bin/racer'
-let g:deoplete#sources#rust#rust_source_path = '/opt/rust/src'
-"let g:deoplete#sources#rust#disable_keymap = 1
-let g:deoplete#sources#rust#documentation_max_height = 20
-let g:ale_linters = {'rust': ['rls', 'rustc']}
-let g:ale_rust_rls_executable = $HOME . '/.cargo/bin/rls'
-
-
-let g:deoplete#sources#ternjs#docs = 1
-let g:deoplete#sources#ternjs#types = 1
-
-
-let g:ale_python_flake8_executable = 'python3'
-let g:ale_python_flake8_options = '-m flake8'
-
-let g:deoplete#enable_at_startup = 1
-
-let g:deoplete#sources#jedi#show_docstring = 1
-
 let g:pdv_template_dir = $HOME ."/.vim/plugged/pdv/templates_snip"
 
 " The Silver Searcher
@@ -184,9 +161,6 @@ set fileencoding=utf-8
 set autoindent
 set smartindent
 
-set expandtab
-set shiftwidth=4
-set tabstop=4
 
 syntax on
 
