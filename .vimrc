@@ -51,7 +51,7 @@ Plug 'Valloric/MatchTagAlways'
 Plug 'rust-lang/rust.vim'
 Plug 'mattn/emmet-vim'
 Plug 'farfanoide/vim-kivy'
-Plug 'maralla/completor.vim'
+Plug 'davidhalter/jedi-vim'
 
 call plug#end()
 
@@ -64,13 +64,8 @@ autocmd CompleteDone * silent! pclose!
 " Close window after completion
 
 
-
-" Completor stuff
-
-let g:completor_min_chars = 0
-let g:completor_auto_close_doc = 0
-
-let g:completor_python_binary = "/usr/bin/python3"
+" jedi-vim
+let g:jedi#usages_command = "<leader>d"
 
 
 function! WriteDocstring()
