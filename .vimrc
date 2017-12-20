@@ -64,6 +64,9 @@ autocmd CompleteDone * silent! pclose!
 " Close window after completion
 
 
+:tnoremap <Esc> <C-\><C-n>
+
+
 " jedi-vim
 let g:jedi#usages_command = "<leader>d"
 
@@ -228,8 +231,6 @@ nnoremap ^ <nop>
 
 nnoremap <CR> G
 
-nnoremap <leader>l <C-W><C-L>
-nnoremap <leader>h <C-W><C-H>
 nnoremap <leader>= <C-W>=
 
 nnoremap <leader>t :enew<CR>
@@ -237,14 +238,31 @@ nnoremap <leader>k :bnext!<CR>
 nnoremap <leader>j :bprevious!<CR>
 nnoremap <leader>q :bp <BAR> bd #<CR>
 nnoremap <leader>d :call WriteDocstring()<CR>
-nnoremap <leader>m :vsplit<CR>
-nnoremap <leader>[ :vertical resize +10<CR>
-nnoremap <leader>] :vertical resize -10<CR>
+nnoremap <leader>v :vsplit<CR>
+nnoremap <leader>h :split<CR>
 nnoremap <leader>, <C-w>q
-nnoremap <leader>U <C-w>k
-nnoremap <leader>M <C-w>j
 nnoremap <leader>e :w<CR>ggi#!/usr/bin/env python<CR><ESC>:!chmod u+x %<CR><CR><CR>
 nnoremap <leader>E :!./%<CR>
+
+
+tnoremap <A-h> <C-\><C-N><C-w>h
+tnoremap <A-j> <C-\><C-N><C-w>j
+tnoremap <A-k> <C-\><C-N><C-w>k
+tnoremap <A-l> <C-\><C-N><C-w>l
+inoremap <A-h> <C-\><C-N><C-w>h
+inoremap <A-j> <C-\><C-N><C-w>j
+inoremap <A-k> <C-\><C-N><C-w>k
+inoremap <A-l> <C-\><C-N><C-w>l
+nnoremap <A-h> <C-w>h
+nnoremap <A-j> <C-w>j
+nnoremap <A-k> <C-w>k
+nnoremap <A-l> <C-w>l
+
+
+nnoremap <A-S-l> :vertical resize +5<CR>
+nnoremap <A-S-h> :vertical resize -5<CR>
+nnoremap <A-S-k> :resize +5<CR>
+nnoremap <A-S-j> :resize -5<CR>
 
 " movement in quickfix
 nmap <leader>; :grep! "\b<C-R><C-W>\b" *<CR>:cw<CR>
