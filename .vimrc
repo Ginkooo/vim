@@ -27,7 +27,6 @@ set noswapfile
 set shell=/bin/bash
 
 
-
 call plug#begin()
 
 Plug 'W0rp/ale'
@@ -44,13 +43,14 @@ Plug 'heavenshell/vim-pydocstring'
 Plug 'ternjs/tern_for_vim', { 'for': ['javascript', 'javascript.jsx'], 'do': 'npm install' }
 Plug 'othree/jspc.vim', { 'for': ['javascript', 'javascript.jsx'] }
 " Plug 'SirVer/ultisnips' snipetts in vim, useful to learn
-" Plug 'tobyS/pdv' php documentator plugin, not really used. Should learn
+Plug 'tobyS/pdv'
 Plug 'Valloric/MatchTagAlways'
 Plug 'antoyo/vim-licenses'
 Plug 'Valloric/MatchTagAlways'
 Plug 'rust-lang/rust.vim'
 Plug 'mattn/emmet-vim'
 Plug 'farfanoide/vim-kivy'
+Plug 'maralla/completor.vim'
 Plug 'davidhalter/jedi-vim'
 
 call plug#end()
@@ -66,7 +66,6 @@ autocmd CompleteDone * silent! pclose!
 
 " jedi-vim
 let g:jedi#usages_command = "<leader>d"
-
 
 function! WriteDocstring()
 	if (&ft=='python')
@@ -275,3 +274,9 @@ let g:UltiSnipsExpandTrigger =  'nothing'
 nnoremap <leader>i :Gpl<CR>
 let g:licenses_copyright_holders_name = 'Piotr Czajka <czajka@protonmail.com>'
 let g:licenses_authors_name = 'Piotr Czajka <czajka@protonmail.com>'
+
+
+set tabstop=4
+set shiftwidth=4
+set expandtab
+set smarttab
