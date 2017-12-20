@@ -29,7 +29,7 @@ set shell=/bin/bash
 
 call plug#begin()
 
-Plug 'W0rp/ale'
+Plug 'neomake/neomake'
 Plug 'sjl/badwolf'
 Plug 'kien/ctrlp.vim'
 Plug 'scrooloose/nerdtree'
@@ -55,6 +55,15 @@ Plug 'davidhalter/jedi-vim'
 
 call plug#end()
 
+function! MyOnBattery()
+  return readfile('/sys/class/power_supply/AC/online') == ['0']
+endfunction
+
+if MyOnBattery()
+  call neomake#configure#automake('nw', 2000)
+else
+  call neomake#configure#automake('nw', 100)
+endif
 
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
