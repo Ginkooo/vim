@@ -56,7 +56,12 @@ Plug 'davidhalter/jedi-vim'
 call plug#end()
 
 function! MyOnBattery()
-  return readfile('/sys/class/power_supply/AC/online') == ['0']
+    let l:path = '/sys/class/power_supply/AC/online'
+    let l:readable = filereadable(l:path)
+    if l:readable == 0
+        return 1
+    endif
+    return readfile(l:path) == ['0']
 endfunction
 
 if MyOnBattery()
