@@ -289,6 +289,9 @@ nmap ]Q :clast<CR>
 nmap <C-J> <C-F>
 nmap <C-K> <C-B>
 
+au VimEnter * silent !xmodmap -e 'clear Lock' -e 'keycode 0x42 = Escape'
+au VimLeave * !xmodmap -e 'clear Lock' -e 'keycode 0x42 = Caps_Lock'
+
 map <F11> <ESC>:call libcallnr("gvimfullscreen.dll", "ToggleFullScreen", 0)<CR><leader>=
 
 map <C-O> o<ESC>ko
