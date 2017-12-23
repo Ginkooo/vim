@@ -53,7 +53,6 @@ Plug 'farfanoide/vim-kivy'
 Plug 'maralla/completor.vim'
 Plug 'davidhalter/jedi-vim'
 Plug 'tpope/vim-commentary'
-Plug 'kana/vim-textobj-entire'
 
 call plug#end()
 
