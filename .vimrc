@@ -248,8 +248,8 @@ nnoremap <CR> G
 
 nnoremap <leader>= <C-W>=
 
-nnoremap <leader>t :split<CR>:terminal<CR>
-nnoremap <leader>T :vsplit<CR>:terminal<CR>
+nnoremap <leader>t :split<CR>:terminal<CR>a
+nnoremap <leader>T :vsplit<CR>:terminal<CR>a
 nnoremap <leader>k :bnext!<CR>
 nnoremap <leader>j :bprevious!<CR>
 nnoremap <leader>q :bp <BAR> bd #<CR>
