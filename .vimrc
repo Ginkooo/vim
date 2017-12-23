@@ -213,8 +213,6 @@ set guioptions-=m
 
 set scrolloff=3
 
-set gdefault
-
 set hidden
 set undofile
 set undodir=~/.vim/undo
