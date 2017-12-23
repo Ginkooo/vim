@@ -52,6 +52,7 @@ Plug 'mattn/emmet-vim'
 Plug 'farfanoide/vim-kivy'
 Plug 'maralla/completor.vim'
 Plug 'davidhalter/jedi-vim'
+Plug 'tpope/vim-commentary'
 
 call plug#end()
 
