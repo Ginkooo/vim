@@ -248,7 +248,7 @@ nnoremap <CR> G
 
 nnoremap <leader>= <C-W>=
 
-nnoremap <leader>t :enew<CR>
+nnoremap <leader>t :split<CR>:terminal<CR>
 nnoremap <leader>k :bnext!<CR>
 nnoremap <leader>j :bprevious!<CR>
 nnoremap <leader>q :bp <BAR> bd #<CR>
