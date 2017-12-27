@@ -85,6 +85,7 @@ autocmd CompleteDone * silent! pclose!
 " jedi-vim
 let g:jedi#usages_command = "<leader>u"
 let g:jedi#goto_assignments_command = "<leader>a"
+let g:jedi#goto_command = "<leader>gd"
 
 function! WriteDocstring()
 	if (&ft=='python')
