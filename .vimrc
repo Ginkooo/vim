@@ -273,18 +273,23 @@ inoremap <A-h> <C-\><C-N><C-w>h
 inoremap <A-j> <C-\><C-N><C-w>j
 inoremap <A-k> <C-\><C-N><C-w>k
 inoremap <A-l> <C-\><C-N><C-w>l
+
+
 nnoremap <A-h> <C-w>h
 nnoremap <A-j> <C-w>j
 nnoremap <A-k> <C-w>k
 nnoremap <A-l> <C-w>l
 
+nnoremap <A-f> :vertical resize +5<CR>
+nnoremap <A-a> :vertical resize -5<CR>
+nnoremap <A-d> :resize +5<CR>
+nnoremap <A-s> :resize -5<CR>
+nnoremap <A-f> :vertical resize +5<CR>
+nnoremap <A-a> :vertical resize -5<CR>
+nnoremap <A-d> :resize +5<CR>
+nnoremap <A-s> :resize -5<CR>
 
-nnoremap <A-S-l> :vertical resize +5<CR>
-nnoremap <A-S-h> :vertical resize -5<CR>
-nnoremap <A-S-k> :resize +5<CR>
-nnoremap <A-S-j> :resize -5<CR>
-
-" movement in quickfix
+" movement inkquickfix
 nmap <leader>; :grep! "\b<C-R><C-W>\b" *<CR>:cw<CR>
 nmap [q :cprev<CR>
 nmap ]q :cnext<CR>
