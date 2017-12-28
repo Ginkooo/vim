@@ -1,4 +1,4 @@
-" Copyright (C) 2017  Piotr Czajka <czajka@protonmail.com>
+    " Copyright (C) 2017  Piotr Czajka <czajka@protonmail.com>
 " Author: Piotr Czajka <czajka@protonmail.com>
 "
 " This program is free software: you can redistribute it and/or modify
@@ -59,6 +59,7 @@ Plug 'farfanoide/vim-kivy'
 Plug 'maralla/completor.vim'
 Plug 'davidhalter/jedi-vim'
 Plug 'tpope/vim-commentary'
+Plug 'wesQ3/vim-windowswap'
 
 call plug#end()
 
@@ -115,8 +116,11 @@ function! WriteDocstring()
     endif
 endfunction
 
-
-
+" windowswap mappings
+nnoremap <silent> <A-S-H> :call WindowSwap#EasyWindowSwap()<CR><C-w>h:call WindowSwap#EasyWindowSwap()<CR>
+nnoremap <silent> <A-S-J> :call WindowSwap#EasyWindowSwap()<CR><C-w>j:call WindowSwap#EasyWindowSwap()<CR>
+nnoremap <silent> <A-S-K> :call WindowSwap#EasyWindowSwap()<CR><C-w>k:call WindowSwap#EasyWindowSwap()<CR>
+nnoremap <silent> <A-S-L> :call WindowSwap#EasyWindowSwap()<CR><C-w>l:call WindowSwap#EasyWindowSwap()<CR>
 
 
 " Hex editor vim
