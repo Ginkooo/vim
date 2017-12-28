@@ -342,3 +342,8 @@ nnoremap k gk
 nnoremap gk k
 nnoremap j gj
 nnoremap gj j
+
+
+" move words under home row
+nnoremap H b
+nnoremap L w
