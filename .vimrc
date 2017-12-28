@@ -29,6 +29,10 @@ set history=200
 set shell=/bin/bash
 
 
+cnoremap <C-p> <Up>
+cnoremap <C-n> <Down>
+
+
 call plug#begin()
 
 Plug 'neomake/neomake'
