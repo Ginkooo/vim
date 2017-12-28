@@ -262,7 +262,7 @@ nnoremap <leader>q :bdelete<CR>
 nnoremap <leader>d :call WriteDocstring()<CR>
 nnoremap <leader>v :vsplit<CR>
 nnoremap <leader>h :split<CR>
-nnoremap <leader>, <C-w>q
+nnoremap <leader>, :close<CR>
 
 
 tnoremap <A-h> <C-\><C-N><C-w>h
