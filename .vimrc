@@ -24,6 +24,8 @@ filetype plugin indent on
 set nobackup
 set noswapfile
 
+set history=200
+
 set shell=/bin/bash
 
 
