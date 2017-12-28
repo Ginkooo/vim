@@ -334,3 +334,11 @@ set smarttab
 
 set wildmenu
 set wildmode=full
+
+
+
+"real lines and display lines
+nnoremap k gk
+nnoremap gk k
+nnoremap j gj
+nnoremap gj j
