@@ -1,4 +1,4 @@
-    " Copyright (C) 2017  Piotr Czajka <czajka@protonmail.com>
+" Copyright (C) 2017  Piotr Czajka <czajka@protonmail.com>
 " Author: Piotr Czajka <czajka@protonmail.com>
 "
 " This program is free software: you can redistribute it and/or modify
