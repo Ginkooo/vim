@@ -263,8 +263,6 @@ nnoremap <leader>d :call WriteDocstring()<CR>
 nnoremap <leader>v :vsplit<CR>
 nnoremap <leader>h :split<CR>
 nnoremap <leader>, <C-w>q
-nnoremap <leader>e :w<CR>ggi#!/usr/bin/env python<CR><ESC>:!chmod u+x %<CR><CR><CR>
-nnoremap <leader>E :!./%<CR>
 
 
 tnoremap <A-h> <C-\><C-N><C-w>h
