@@ -60,6 +60,7 @@ Plug 'maralla/completor.vim'
 Plug 'davidhalter/jedi-vim'
 Plug 'tpope/vim-commentary'
 Plug 'wesQ3/vim-windowswap'
+Plug 'szw/vim-maximizer'
 
 call plug#end()
 
@@ -347,3 +348,6 @@ nnoremap gj j
 " move words under home row
 nnoremap H b
 nnoremap L w
+
+" maximaze/restore window
+nnoremap <A-m> :MaximizerToggle!<CR>
