@@ -61,6 +61,8 @@ Plug 'davidhalter/jedi-vim'
 Plug 'tpope/vim-commentary'
 Plug 'wesQ3/vim-windowswap'
 Plug 'szw/vim-maximizer'
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-surround'
 
 call plug#end()
 
