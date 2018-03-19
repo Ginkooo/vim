@@ -63,6 +63,8 @@ Plug 'wesQ3/vim-windowswap'
 Plug 'szw/vim-maximizer'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
+Plug 'fatih/vim-go'
+Plug 'stevearc/vim-arduino'
 
 call plug#end()
 
@@ -98,13 +100,13 @@ let g:jedi#goto_assignments_command = "<leader>a"
 let g:jedi#goto_command = "<leader>gd"
 
 function! WriteDocstring()
-	if (&ft=='python')
-		Pydocstring
-	endif
+    if (&ft=='python')
+        Pydocstring
+    endif
 
-	if (&ft=='javascript')
-		JsDoc
-	endif
+    if (&ft=='javascript')
+        JsDoc
+    endif
 
     if (&ft=='php')
         call pdv#DocumentWithSnip()
