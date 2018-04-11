@@ -35,7 +35,6 @@ cnoremap <C-n> <Down>
 
 call plug#begin()
 
-Plug 'neomake/neomake'
 Plug 'sjl/badwolf'
 Plug 'kien/ctrlp.vim'
 Plug 'scrooloose/nerdtree'
@@ -57,7 +56,6 @@ Plug 'rust-lang/rust.vim'
 Plug 'mattn/emmet-vim'
 Plug 'farfanoide/vim-kivy'
 Plug 'maralla/completor.vim'
-Plug 'davidhalter/jedi-vim'
 Plug 'tpope/vim-commentary'
 Plug 'wesQ3/vim-windowswap'
 Plug 'szw/vim-maximizer'
@@ -65,6 +63,16 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'fatih/vim-go'
 Plug 'stevearc/vim-arduino'
+Plug 'lervag/vimtex'
+Plug 'davidhalter/jedi-vim'
+
+let g:vimtex_enabled = 1
+let g:jedi#completions_enabled = 0
+
+let g:jedi#goto_command = "<leader>gi"
+let g:jedi#goto_assignments_command = "<leader>ga"
+let g:jedi#documentation_command = "<leader>gd"
+let g:jedi#usages_command = "<leader>u"
 
 call plug#end()
 
@@ -77,12 +85,6 @@ function! MyOnBattery()
     return readfile(l:path) == ['0']
 endfunction
 
-if MyOnBattery()
-  call neomake#configure#automake('nw', 2000)
-else
-  call neomake#configure#automake('nw', 100)
-endif
-
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 inoremap <expr> <cr> pumvisible() ? "\<C-y>\<cr>" : "\<cr>"
@@ -90,14 +92,7 @@ inoremap <expr> <cr> pumvisible() ? "\<C-y>\<cr>" : "\<cr>"
 autocmd CompleteDone * silent! pclose!
 " Close window after completion
 
-
 :tnoremap <Esc> <C-\><C-n>
-
-
-" jedi-vim
-let g:jedi#usages_command = "<leader>u"
-let g:jedi#goto_assignments_command = "<leader>a"
-let g:jedi#goto_command = "<leader>gd"
 
 function! WriteDocstring()
     if (&ft=='python')
