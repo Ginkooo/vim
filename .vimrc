@@ -55,7 +55,6 @@ Plug 'Valloric/MatchTagAlways'
 Plug 'rust-lang/rust.vim'
 Plug 'mattn/emmet-vim'
 Plug 'farfanoide/vim-kivy'
-Plug 'maralla/completor.vim'
 Plug 'tpope/vim-commentary'
 Plug 'wesQ3/vim-windowswap'
 Plug 'szw/vim-maximizer'
@@ -63,20 +62,40 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'fatih/vim-go'
 Plug 'stevearc/vim-arduino'
-Plug 'lervag/vimtex'
-Plug 'davidhalter/jedi-vim'
+Plug 'lervag/vimtex' "Latex things, like \ll for continuous compilation
+Plug 'w0rp/ale' "code linting
+Plug 'davidhalter/jedi-vim' "jedi python code completion, gotos etc.
+Plug 'ervandew/supertab' "use tab for navigating completion menu and choosing items
+Plug 'tweekmonster/django-plus.vim' "completion and highliting for django
+Plug 'farfanoide/vim-kivy' "highliting for kivy
 
 let g:vimtex_enabled = 1
-let g:jedi#completions_enabled = 0
 
+"supertab configuration---------------------------------------------------
+let g:SuperTabDefaultCompletionType = "<c-n>" "choose items from top to bottom
+
+"jedi-vim configuration---------------------------------------------------
 let g:jedi#goto_command = "<leader>gi"
 let g:jedi#goto_assignments_command = "<leader>ga"
-let g:jedi#documentation_command = "<leader>gd"
-let g:jedi#usages_command = "<leader>u"
+let g:jedi#goto_definitions_command = ""
+let g:jedi#documentation_command = "K"
+let g:jedi#usages_command = "<leader>gu"
+let g:jedi#completions_command = "<C-Space>"
+let g:jedi#rename_command = "<leader>r"
+"END OF JEDI CONFIGURATION ------------------------------------------------
+
+"EVENTS--------------------------------------------------------------------
+
+"As PEP8 hints
+autocmd InsertEnter *.py :set colorcolumn=80
+autocmd InsertLeave *.py :set colorcolumn&
+
+"END OF EVENTS-------------------------------------------------------------
 
 call plug#end()
 
 function! MyOnBattery()
+    "detect if on battery source or not
     let l:path = '/sys/class/power_supply/AC/online'
     let l:readable = filereadable(l:path)
     if l:readable == 0
@@ -85,14 +104,7 @@ function! MyOnBattery()
     return readfile(l:path) == ['0']
 endfunction
 
-inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
-inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-inoremap <expr> <cr> pumvisible() ? "\<C-y>\<cr>" : "\<cr>"
-
-autocmd CompleteDone * silent! pclose!
-" Close window after completion
-
-:tnoremap <Esc> <C-\><C-n>
+tnoremap <Esc> <C-\><C-n>
 
 function! WriteDocstring()
     if (&ft=='python')
