@@ -151,11 +151,6 @@ endfunction
 command Hex call ToggleHexMode()
 
 
-"emmet config
-let g:user_emmet_leader_key='<leader>f'
-let g:user_emmet_mode='n'
-
-
 let g:pdv_template_dir = $HOME ."/.vim/plugged/pdv/templates_snip"
 
 " The Silver Searcher
