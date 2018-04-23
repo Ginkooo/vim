@@ -7,3 +7,4 @@ Shortcuts that I forget
 * `leader + gu` - go to usages
 * `leader + r` - rename
 * `leader + d` - make docstring
+* `control + y and ,` - do emmet magic (adwanced html abbreviations)
