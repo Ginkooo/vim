@@ -8,3 +8,4 @@ Shortcuts that I forget
 * `leader + r` - rename
 * `leader + d` - make docstring
 * `control + y and ,` - do emmet magic (adwanced html abbreviations)
+* `leader + mp` - Python mypy completion

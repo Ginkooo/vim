@@ -45,8 +45,6 @@ Plug 'bling/vim-bufferline'
 Plug 'ap/vim-css-color'
 Plug 'jistr/vim-nerdtree-tabs'
 Plug 'heavenshell/vim-pydocstring'
-Plug 'ternjs/tern_for_vim', { 'for': ['javascript', 'javascript.jsx'], 'do': 'npm install' }
-Plug 'othree/jspc.vim', { 'for': ['javascript', 'javascript.jsx'] }
 " Plug 'SirVer/ultisnips' snipetts in vim, useful to learn
 Plug 'tobyS/pdv'
 Plug 'Valloric/MatchTagAlways'
@@ -64,10 +62,43 @@ Plug 'fatih/vim-go'
 Plug 'stevearc/vim-arduino'
 Plug 'lervag/vimtex' "Latex things, like \ll for continuous compilation
 Plug 'w0rp/ale' "code linting
-Plug 'davidhalter/jedi-vim' "jedi python code completion, gotos etc.
-Plug 'ervandew/supertab' "use tab for navigating completion menu and choosing items
 Plug 'tweekmonster/django-plus.vim' "completion and highliting for django
 Plug 'farfanoide/vim-kivy' "highliting for kivy
+Plug 'pangloss/vim-javascript' "syntax highlighting for JS
+Plug 'ervandew/supertab' "use tab for choosing completions
+Plug 'mxw/vim-jsx' "syntax highliting for JSX (That React virtual DOM syntax)
+Plug 'zchee/deoplete-jedi' "deoplete completion for python
+Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' } "deoplete completion for Javascript
+Plug 'Integralist/vim-mypy' "python type check under :Mypy
+
+"enable completion framework
+if has('nvim')
+  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+else
+  Plug 'Shougo/deoplete.nvim'
+  Plug 'roxma/nvim-yarp'
+  Plug 'roxma/vim-hug-neovim-rpc'
+endif
+let g:deoplete#enable_at_startup = 1
+
+let g:SuperTabClosePreviewOnPopupClose = 1 "close preview window on completion done
+
+"Deoplete configuration
+let g:deoplete#sources#jedi#show_docstring = 1 "show python docstring in preview window
+let g:deoplete#sources#ternjs#types = 1
+
+autocmd VimEnter * :call deoplete#custom#option('max_list', 20) "show max 20 most relevant results for deoplete completion
+
+"END OF DEOPLETE CONFIGURATION
+
+" Whether to include the distance (in scopes for variables, in prototypes for 
+" properties) between the completions and the origin position in the result 
+let g:deoplete#sources#ternjs#depths = 1
+
+" Whether to include documentation strings (if found) in the result data.
+let g:deoplete#sources#ternjs#docs = 1
+
+"End of deoplete configuration
 
 let g:vimtex_enabled = 1
 
