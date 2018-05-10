@@ -70,6 +70,7 @@ Plug 'mxw/vim-jsx' "syntax highliting for JSX (That React virtual DOM syntax)
 Plug 'zchee/deoplete-jedi' "deoplete completion for python
 Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' } "deoplete completion for Javascript
 Plug 'Integralist/vim-mypy' "python type check under :Mypy
+Plug 'davidhalter/jedi-vim' " for go to implementation in python etc. this doesn't do autocompletion
 
 "enable completion framework
 if has('nvim')
@@ -106,6 +107,7 @@ let g:vimtex_enabled = 1
 let g:SuperTabDefaultCompletionType = "<c-n>" "choose items from top to bottom
 
 "jedi-vim configuration---------------------------------------------------
+let g:jedi#completions_enabled = 0
 let g:jedi#goto_command = "<leader>gi"
 let g:jedi#goto_assignments_command = "<leader>ga"
 let g:jedi#goto_definitions_command = ""
