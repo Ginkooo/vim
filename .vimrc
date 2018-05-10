@@ -304,8 +304,6 @@ nnoremap <CR> G
 
 nnoremap <leader>= <C-W>=
 
-nnoremap <leader>t :split<CR>:terminal<CR>a
-nnoremap <leader>T :vsplit<CR>:terminal<CR>a
 nnoremap <leader>k :bnext<CR>
 nnoremap <leader>j :bprevious<CR>
 nnoremap <leader>q :bdelete<CR>
@@ -403,3 +401,8 @@ nnoremap <leader>. :pclose<CR>
 nnoremap <leader>ghs <ESC>:GitGutterStageHunk<CR>
 nnoremap <leader>ghu <ESC>:GitGutterUndoHunk<CR>
 nnoremap <leader>ghp <ESC>:GitGutterPreviewHunk<CR>
+
+"toggling things
+nnoremap <leader>tt :split<CR>:terminal<CR>a
+nnoremap <leader>tT :vsplit<CR>:terminal<CR>a
+nnoremap <leader>ta :ALEToggle<CR>

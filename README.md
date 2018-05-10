@@ -10,8 +10,12 @@ Shortcuts that I forget
 * `leader + gu` - go to usages
 * `leader + r` - rename
 * `leader + d` - make docstring
-* `control + y and ,` - do emmet magic (adwanced html abbreviations)
-* `leader + mp` - Python mypy completion
+
+# auto code making
+
+* `control + y and ,` - do emmet magic (advanced html abbreviations), in insert mode
+* `leader + d` - Insert docstrings (any language)
+* `leader + i` - Insert LICENCE note at top of the file
 
 
 # git
@@ -24,3 +28,9 @@ Shortcuts that I forget
 
 * `leader + .` - Close preview window
 * `leader + ,` - Close normal window
+
+# toggling
+
+* `leader + ta` - Toggle ALE linting plugin
+* `leader +tt` - Toggle vertical terminal
+* `leader + tT` - Toggle horizontal terminal
