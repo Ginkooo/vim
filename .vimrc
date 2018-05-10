@@ -35,6 +35,8 @@ cnoremap <C-n> <Down>
 
 call plug#begin()
 
+Plug 'tpope/vim-fugitive'
+Plug 'airblade/vim-gitgutter'
 Plug 'sjl/badwolf'
 Plug 'kien/ctrlp.vim'
 Plug 'scrooloose/nerdtree'
@@ -100,6 +102,10 @@ let g:deoplete#sources#ternjs#depths = 1
 let g:deoplete#sources#ternjs#docs = 1
 
 "End of deoplete configuration
+
+"Gitgutter configuration----------------------------------------------------
+let g:gitgutter_map_keys = 0 "turn off default mappings
+"end of git gutter configuration--------------------------------------------
 
 let g:vimtex_enabled = 1
 
@@ -270,7 +276,7 @@ set undofile
 set undodir=~/.vim/undo
 
 
-nmap <F1> <nop>
+nnoremap <F1> <nop>
 imap <F1> <nop>
 vmap <F1> <nop>
 
@@ -278,10 +284,10 @@ vmap <leader>y "+y
 vmap <leader>d "+d
 vmap <leader>p "+p
 vmap <leader>P "+P
-nmap <leader>p "+p
-nmap <leader>P "+P
+nnoremap <leader>p "+p
+nnoremap <leader>P "+P
 
-nmap <F2> :w<CR>
+nnoremap <F2> :w<CR>
 imap <F2> <ESC>:w<CR>
 
 nnoremap <silent> <F3> :set hlsearch!<CR>
@@ -334,14 +340,14 @@ nnoremap <A-d> :resize +5<CR>
 nnoremap <A-s> :resize -5<CR>
 
 " movement inkquickfix
-nmap <leader>; :grep! "\b<C-R><C-W>\b" *<CR>:cw<CR>
-nmap [q :cprev<CR>
-nmap ]q :cnext<CR>
-nmap [Q :cfirst<CR>
-nmap ]Q :clast<CR>
+nnoremap <leader>; :grep! "\b<C-R><C-W>\b" *<CR>:cw<CR>
+nnoremap [q :cprev<CR>
+nnoremap ]q :cnext<CR>
+nnoremap [Q :cfirst<CR>
+nnoremap ]Q :clast<CR>
 
-nmap <C-J> <C-F>
-nmap <C-K> <C-B>
+nnoremap <C-J> <C-F>
+nnoremap <C-K> <C-B>
 
 au VimEnter * silent !xmodmap -e 'clear Lock' -e 'keycode 0x42 = Escape'
 au VimLeave * !xmodmap -e 'clear Lock' -e 'keycode 0x42 = Caps_Lock'
@@ -390,3 +396,10 @@ nnoremap L w
 
 " maximaze/restore window
 nnoremap <A-m> :MaximizerToggle!<CR>
+
+nnoremap <leader>. :pclose<CR>
+
+"git gutter key bindings
+nnoremap <leader>ghs <ESC>:GitGutterStageHunk<CR>
+nnoremap <leader>ghu <ESC>:GitGutterUndoHunk<CR>
+nnoremap <leader>ghp <ESC>:GitGutterPreviewHunk<CR>
