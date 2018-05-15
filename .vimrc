@@ -395,13 +395,13 @@ nnoremap <A-m> :MaximizerToggle!<CR>
 
 nnoremap <leader>. :pclose<CR>
 
-"git gutter key bindings
+"git key bindings
 nnoremap <leader>ghs <ESC>:GitGutterStageHunk<CR>
 nnoremap <leader>ghu <ESC>:GitGutterUndoHunk<CR>
 nnoremap <leader>ghp <ESC>:GitGutterPreviewHunk<CR>
+nnoremap <leader>gdm :Gdiff master<CR>
 
 "toggling things
 nnoremap <leader>tt :split<CR>:terminal<CR>a
 nnoremap <leader>tT :vsplit<CR>:terminal<CR>a
 nnoremap <leader>ta :ALEToggle<CR>
-nnoremap <leader>tgdm :Gdiff master<CR>

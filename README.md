@@ -22,6 +22,7 @@ Shortcuts that I forget
 * `leader + ghp` - Preview git hunk (HEAD hunk)
 * `leader + ghs` - Stage git hunk
 * `leader + ghu` - Undo git hunk (changes)
+* `leader + gdm` - Git diff with master
 
 
 # windows
