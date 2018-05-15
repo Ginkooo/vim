@@ -14,8 +14,6 @@
 " You should have received a copy of the GNU General Public License
 " along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-set autochdir
-
 set nocompatible
 filetype plugin on
 
@@ -406,3 +404,4 @@ nnoremap <leader>ghp <ESC>:GitGutterPreviewHunk<CR>
 nnoremap <leader>tt :split<CR>:terminal<CR>a
 nnoremap <leader>tT :vsplit<CR>:terminal<CR>a
 nnoremap <leader>ta :ALEToggle<CR>
+nnoremap <leader>tgdm :Gdiff master<CR>
