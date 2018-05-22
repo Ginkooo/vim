@@ -14,8 +14,6 @@
 " You should have received a copy of the GNU General Public License
 " along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-set autochdir
-
 set nocompatible
 filetype plugin on
 
@@ -399,10 +397,11 @@ nnoremap <A-m> :MaximizerToggle!<CR>
 
 nnoremap <leader>. :pclose<CR>
 
-"git gutter key bindings
+"git key bindings
 nnoremap <leader>ghs <ESC>:GitGutterStageHunk<CR>
 nnoremap <leader>ghu <ESC>:GitGutterUndoHunk<CR>
 nnoremap <leader>ghp <ESC>:GitGutterPreviewHunk<CR>
+nnoremap <leader>gdm :Gdiff master<CR>
 
 "toggling things
 nnoremap <leader>tt :split<CR>:terminal<CR>a
