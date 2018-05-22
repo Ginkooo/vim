@@ -107,7 +107,9 @@ let g:deoplete#sources#ternjs#docs = 1
 let g:gitgutter_map_keys = 0 "turn off default mappings
 "end of git gutter configuration--------------------------------------------
 
+"Vimtex configuration--
 let g:vimtex_enabled = 1
+let g:vimtex_view_general_viewer = 'okular'
 
 "supertab configuration---------------------------------------------------
 let g:SuperTabDefaultCompletionType = "<c-n>" "choose items from top to bottom
