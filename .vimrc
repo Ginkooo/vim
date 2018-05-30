@@ -69,12 +69,30 @@ Plug 'ervandew/supertab' "use tab for choosing completions
 Plug 'mxw/vim-jsx' "syntax highliting for JSX (That React virtual DOM syntax)
 Plug 'Integralist/vim-mypy' "python type check under :Mypy
 Plug 'davidhalter/jedi-vim' " for go to implementation in python etc. this doesn't do autocompletion
-Plug 'maralla/completor.vim'
+Plug 'maralla/completor.vim' " completion engine
+Plug 'rust-lang/rust.vim' "support for rust filetype in vim
+Plug 'racer-rust/vim-racer' "rust code navigation. It has code completion features, but they are not used, as completor handles everything
+
 let g:SuperTabClosePreviewOnPopupClose = 1 "close preview window on completion done
 
 "Gitgutter configuration----------------------------------------------------
 let g:gitgutter_map_keys = 0 "turn off default mappings
 "end of git gutter configuration--------------------------------------------
+
+"vim-racer configuration
+au FileType rust nmap <leader>gd <Plug>(rust-def)
+au FileType rust nmap <leader>K <Plug>(rust-doc)
+"end of vim-racer configuration
+
+
+"ALE configuration-----------------------------------------------------------
+let g:ale_linters = {'rust': ['rls', 'cargo', 'rustc']}
+"end of ALE configuration----------------------------------------------------
+
+
+"completor configuration------------------------------------------------------
+"end of completor configuration-----------------------------------------------
+
 
 "Vimtex configuration--
 let g:vimtex_enabled = 1
