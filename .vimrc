@@ -369,8 +369,8 @@ set wildmenu
 set wildmode=full
 
 "filetype specific keymaps
-autocmd FileType python nnoremap <leader>pd oimport pdb; pdb.set_trace<ESC>
-autocmd FileType python nnoremap <leader>Pd Oimport pdb; pdb.set_trace<ESC>
+autocmd FileType python nnoremap <leader>pd oimport pdb; pdb.set_trace()<ESC>
+autocmd FileType python nnoremap <leader>Pd Oimport pdb; pdb.set_trace()<ESC>
 
 "real lines and display lines
 nnoremap k gk
