@@ -271,10 +271,10 @@ vmap <F1> <nop>
 
 vmap <leader>y "+y
 vmap <leader>d "+d
-vmap <leader>p "+p
-vmap <leader>P "+P
-nnoremap <leader>p "+p
-nnoremap <leader>P "+P
+vmap <leader>pp "+p
+vmap <leader>Pp "+P
+nnoremap <leader>pp "+p
+nnoremap <leader>Pp "+P
 
 nnoremap <F2> :w<CR>
 imap <F2> <ESC>:w<CR>
@@ -368,7 +368,9 @@ set smarttab
 set wildmenu
 set wildmode=full
 
-
+"filetype specific keymaps
+autocmd FileType python nnoremap <leader>pd oimport pdb; pdb.set_trace<ESC>
+autocmd FileType python nnoremap <leader>Pd Oimport pdb; pdb.set_trace<ESC>
 
 "real lines and display lines
 nnoremap k gk

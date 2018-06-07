@@ -17,7 +17,6 @@ Shortcuts that I forget
 * `leader + d` - Insert docstrings (any language)
 * `leader + i` - Insert LICENCE note at top of the file
 
-
 # git
 * `leader + ghp` - Preview git hunk (HEAD hunk)
 * `leader + ghs` - Stage git hunk
@@ -35,3 +34,7 @@ Shortcuts that I forget
 * `leader + ta` - Toggle ALE linting plugin
 * `leader +tt` - Toggle vertical terminal
 * `leader + tT` - Toggle horizontal terminal
+
+# code insertion
+
+* `leader + pd/Pd` - Put python breakpoint below or above cursor
