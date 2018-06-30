@@ -72,6 +72,7 @@ Plug 'davidhalter/jedi-vim' " for go to implementation in python etc. this doesn
 Plug 'maralla/completor.vim' " completion engine
 Plug 'rust-lang/rust.vim' "support for rust filetype in vim
 Plug 'racer-rust/vim-racer' "rust code navigation. It has code completion features, but they are not used, as completor handles everything
+Plug 'posva/vim-vue' "Syntax highliting for vue.js projects
 
 let g:SuperTabClosePreviewOnPopupClose = 1 "close preview window on completion done
 
