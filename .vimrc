@@ -1,4 +1,4 @@
-" Copyright (C) 2017  Piotr Czajka <czajka@protonmail.com>
+" Copyright (C) 2018  Piotr Czajka <czajka@protonmail.com>
 " Author: Piotr Czajka <czajka@protonmail.com>
 "
 " This program is free software: you can redistribute it and/or modify
@@ -132,8 +132,6 @@ function! MyOnBattery()
     endif
     return readfile(l:path) == ['0']
 endfunction
-
-tnoremap <Esc> <C-\><C-n>
 
 function! WriteDocstring()
     if (&ft=='python')
@@ -303,29 +301,30 @@ nnoremap <leader>h :split<CR>
 nnoremap <leader>, :close<CR>
 
 
-tnoremap <A-h> <C-\><C-N><C-w>h
-tnoremap <A-j> <C-\><C-N><C-w>j
-tnoremap <A-k> <C-\><C-N><C-w>k
-tnoremap <A-l> <C-\><C-N><C-w>l
-inoremap <A-h> <C-\><C-N><C-w>h
-inoremap <A-j> <C-\><C-N><C-w>j
-inoremap <A-k> <C-\><C-N><C-w>k
-inoremap <A-l> <C-\><C-N><C-w>l
+"window movement
+execute "set <M-h>=\eh"
+execute "set <M-j>=\ej"
+execute "set <M-k>=\ek"
+execute "set <M-l>=\el"
+execute "set <M-a>=\ea"
+execute "set <M-s>=\es"
+execute "set <M-d>=\ed"
+execute "set <M-f>=\ef"
 
+inoremap <M-h> <C-\><C-N><C-w>h
+inoremap <M-j> <C-\><C-N><C-w>j
+inoremap <M-k> <C-\><C-N><C-w>k
+inoremap <M-l> <C-\><C-N><C-w>l
+nnoremap <M-h> <C-w>h
+nnoremap <M-j> <C-w>j
+nnoremap <M-k> <C-w>k
+nnoremap <M-l> <C-w>l
 
-nnoremap <A-h> <C-w>h
-nnoremap <A-j> <C-w>j
-nnoremap <A-k> <C-w>k
-nnoremap <A-l> <C-w>l
+nnoremap <M-f> :vertical resize +5<CR>
+nnoremap <M-a> :vertical resize -5<CR>
+nnoremap <M-d> :resize +5<CR>
+nnoremap <M-s> :resize -5<CR>
 
-nnoremap <A-f> :vertical resize +5<CR>
-nnoremap <A-a> :vertical resize -5<CR>
-nnoremap <A-d> :resize +5<CR>
-nnoremap <A-s> :resize -5<CR>
-nnoremap <A-f> :vertical resize +5<CR>
-nnoremap <A-a> :vertical resize -5<CR>
-nnoremap <A-d> :resize +5<CR>
-nnoremap <A-s> :resize -5<CR>
 
 " movement inkquickfix
 nnoremap <leader>; :grep! "\b<C-R><C-W>\b" *<CR>:cw<CR>
@@ -372,6 +371,12 @@ set wildmode=full
 "filetype specific keymaps
 autocmd FileType python nnoremap <leader>pd oimport pdb; pdb.set_trace()<ESC>
 autocmd FileType python nnoremap <leader>Pd Oimport pdb; pdb.set_trace()<ESC>
+autocmd FileType html set tabstop=2
+autocmd FileType html set shiftwidth=2
+autocmd FileType vue set tabstop=2
+autocmd FileType vue set shiftwidth=2
+autocmd FileType javascript.jsx set tabstop=2
+autocmd FileType javascript.jsx set shiftwidth=2
 
 "real lines and display lines
 nnoremap k gk
@@ -396,6 +401,5 @@ nnoremap <leader>ghp <ESC>:GitGutterPreviewHunk<CR>
 nnoremap <leader>gdm :Gdiff master<CR>
 
 "toggling things
-nnoremap <leader>tt :split<CR>:terminal<CR>a
-nnoremap <leader>tT :vsplit<CR>:terminal<CR>a
+nnoremap <leader>tt :split<CR>:term<CR>
 nnoremap <leader>ta :ALEToggle<CR>
