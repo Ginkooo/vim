@@ -369,8 +369,8 @@ set wildmenu
 set wildmode=full
 
 "filetype specific keymaps
-autocmd FileType python nnoremap <leader>pd oimport pdb; pdb.set_trace()<ESC>
-autocmd FileType python nnoremap <leader>Pd Oimport pdb; pdb.set_trace()<ESC>
+autocmd FileType python nnoremap <leader>pd oimport ipdb; ipdb.set_trace()<ESC>
+autocmd FileType python nnoremap <leader>Pd Oimport ipdb; ipdb.set_trace()<ESC>
 autocmd FileType html set tabstop=2
 autocmd FileType html set shiftwidth=2
 autocmd FileType vue set tabstop=2
