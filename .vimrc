@@ -42,7 +42,6 @@ Plug 'heavenshell/vim-jsdoc'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'bling/vim-bufferline'
-Plug 'ap/vim-css-color'
 Plug 'jistr/vim-nerdtree-tabs'
 Plug 'heavenshell/vim-pydocstring'
 " Plug 'SirVer/ultisnips' snipetts in vim, useful to learn
@@ -73,6 +72,8 @@ Plug 'maralla/completor.vim' " completion engine
 Plug 'rust-lang/rust.vim' "support for rust filetype in vim
 Plug 'racer-rust/vim-racer' "rust code navigation. It has code completion features, but they are not used, as completor handles everything
 Plug 'posva/vim-vue' "Syntax highliting for vue.js projects
+
+call plug#end()
 
 let g:SuperTabClosePreviewOnPopupClose = 1 "close preview window on completion done
 
@@ -120,8 +121,6 @@ autocmd InsertEnter *.py :set colorcolumn=80
 autocmd InsertLeave *.py :set colorcolumn&
 
 "END OF EVENTS-------------------------------------------------------------
-
-call plug#end()
 
 function! MyOnBattery()
     "detect if on battery source or not
