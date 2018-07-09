@@ -41,7 +41,6 @@ Plug 'scrooloose/nerdtree'
 Plug 'heavenshell/vim-jsdoc'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'bling/vim-bufferline'
 Plug 'jistr/vim-nerdtree-tabs'
 Plug 'heavenshell/vim-pydocstring'
 " Plug 'SirVer/ultisnips' snipetts in vim, useful to learn
