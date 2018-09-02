@@ -65,7 +65,6 @@ Plug 'farfanoide/vim-kivy' "highliting for kivy
 Plug 'pangloss/vim-javascript' "syntax highlighting for JS
 Plug 'ervandew/supertab' "use tab for choosing completions
 Plug 'mxw/vim-jsx' "syntax highliting for JSX (That React virtual DOM syntax)
-Plug 'Integralist/vim-mypy' "python type check under :Mypy
 Plug 'davidhalter/jedi-vim' " for go to implementation in python etc. this doesn't do autocompletion
 Plug 'maralla/completor.vim' " completion engine
 Plug 'rust-lang/rust.vim' "support for rust filetype in vim
