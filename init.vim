@@ -32,18 +32,14 @@ cnoremap <C-n> <Down>
 
 
 call plug#begin()
-
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 Plug 'sjl/badwolf'
 Plug 'kien/ctrlp.vim'
 Plug 'scrooloose/nerdtree'
 Plug 'heavenshell/vim-jsdoc'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
 Plug 'jistr/vim-nerdtree-tabs'
 Plug 'heavenshell/vim-pydocstring'
-" Plug 'SirVer/ultisnips' snipetts in vim, useful to learn
 Plug 'tobyS/pdv'
 Plug 'Valloric/MatchTagAlways'
 Plug 'antoyo/vim-licenses'
@@ -60,6 +56,8 @@ Plug 'stevearc/vim-arduino'
 Plug 'lervag/vimtex' "Latex things, like \ll for continuous compilation
 Plug 'w0rp/ale' "code linting
 Plug 'davidhalter/jedi-vim'
+Plug 'bling/vim-bufferline'
+Plug 'ervandew/supertab'
 
 if has('nvim')
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
