@@ -48,7 +48,6 @@ Plug 'tobyS/pdv'
 Plug 'Valloric/MatchTagAlways'
 Plug 'antoyo/vim-licenses'
 Plug 'Valloric/MatchTagAlways'
-Plug 'rust-lang/rust.vim'
 Plug 'mattn/emmet-vim'
 Plug 'farfanoide/vim-kivy'
 Plug 'tpope/vim-commentary'
@@ -60,16 +59,19 @@ Plug 'fatih/vim-go'
 Plug 'stevearc/vim-arduino'
 Plug 'lervag/vimtex' "Latex things, like \ll for continuous compilation
 Plug 'w0rp/ale' "code linting
-Plug 'tweekmonster/django-plus.vim' "completion and highliting for django
-Plug 'farfanoide/vim-kivy' "highliting for kivy
-Plug 'pangloss/vim-javascript' "syntax highlighting for JS
-Plug 'ervandew/supertab' "use tab for choosing completions
-Plug 'mxw/vim-jsx' "syntax highliting for JSX (That React virtual DOM syntax)
-Plug 'davidhalter/jedi-vim' " for go to implementation in python etc. this doesn't do autocompletion
-Plug 'maralla/completor.vim' " completion engine
-Plug 'rust-lang/rust.vim' "support for rust filetype in vim
-Plug 'racer-rust/vim-racer' "rust code navigation. It has code completion features, but they are not used, as completor handles everything
-Plug 'posva/vim-vue' "Syntax highliting for vue.js projects
+Plug 'davidhalter/jedi-vim'
+
+if has('nvim')
+  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+else
+  Plug 'Shougo/deoplete.nvim'
+  Plug 'roxma/nvim-yarp'
+  Plug 'roxma/vim-hug-neovim-rpc'
+endif
+let g:deoplete#enable_at_startup = 1
+
+Plug 'zchee/deoplete-jedi'
+Plug 'sebastianmarkow/deoplete-rust'
 
 call plug#end()
 
