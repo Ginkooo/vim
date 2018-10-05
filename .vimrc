@@ -298,29 +298,19 @@ nnoremap <leader>h :split<CR>
 nnoremap <leader>, :close<CR>
 
 
-"window movement
-execute "set <M-h>=\eh"
-execute "set <M-j>=\ej"
-execute "set <M-k>=\ek"
-execute "set <M-l>=\el"
-execute "set <M-a>=\ea"
-execute "set <M-s>=\es"
-execute "set <M-d>=\ed"
-execute "set <M-f>=\ef"
+inoremap <A-h> <C-\><C-N><C-w>h
+inoremap <A-j> <C-\><C-N><C-w>j
+inoremap <A-k> <C-\><C-N><C-w>k
+inoremap <A-l> <C-\><C-N><C-w>l
+nnoremap <A-h> <C-w>h
+nnoremap <A-j> <C-w>j
+nnoremap <A-k> <C-w>k
+nnoremap <A-l> <C-w>l
 
-inoremap <M-h> <C-\><C-N><C-w>h
-inoremap <M-j> <C-\><C-N><C-w>j
-inoremap <M-k> <C-\><C-N><C-w>k
-inoremap <M-l> <C-\><C-N><C-w>l
-nnoremap <M-h> <C-w>h
-nnoremap <M-j> <C-w>j
-nnoremap <M-k> <C-w>k
-nnoremap <M-l> <C-w>l
-
-nnoremap <M-f> :vertical resize +5<CR>
-nnoremap <M-a> :vertical resize -5<CR>
-nnoremap <M-d> :resize +5<CR>
-nnoremap <M-s> :resize -5<CR>
+nnoremap <A-f> :vertical resize +5<CR>
+nnoremap <A-a> :vertical resize -5<CR>
+nnoremap <A-d> :resize +5<CR>
+nnoremap <A-s> :resize -5<CR>
 
 
 " movement inkquickfix
