@@ -56,21 +56,8 @@ Plug 'stevearc/vim-arduino'
 Plug 'lervag/vimtex' "Latex things, like \ll for continuous compilation
 Plug 'w0rp/ale' "code linting
 Plug 'davidhalter/jedi-vim'
-Plug 'bling/vim-bufferline'
 Plug 'ervandew/supertab'
-
-if has('nvim')
-  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-else
-  Plug 'Shougo/deoplete.nvim'
-  Plug 'roxma/nvim-yarp'
-  Plug 'roxma/vim-hug-neovim-rpc'
-endif
-let g:deoplete#enable_at_startup = 1
-
-Plug 'zchee/deoplete-jedi'
-Plug 'sebastianmarkow/deoplete-rust'
-
+Plug 'maralla/completor.vim'
 call plug#end()
 
 let g:SuperTabClosePreviewOnPopupClose = 1 "close preview window on completion done
