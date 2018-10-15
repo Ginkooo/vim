@@ -58,18 +58,7 @@ Plug 'w0rp/ale' "code linting
 Plug 'davidhalter/jedi-vim'
 Plug 'bling/vim-bufferline'
 Plug 'ervandew/supertab'
-
-if has('nvim')
-  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-else
-  Plug 'Shougo/deoplete.nvim'
-  Plug 'roxma/nvim-yarp'
-  Plug 'roxma/vim-hug-neovim-rpc'
-endif
-let g:deoplete#enable_at_startup = 1
-
-Plug 'zchee/deoplete-jedi'
-Plug 'sebastianmarkow/deoplete-rust'
+Plug 'Chiel92/vim-autoformat'
 
 call plug#end()
 
@@ -90,10 +79,6 @@ let g:ale_linters = {'rust': ['rls', 'cargo', 'rustc']}
 "end of ALE configuration----------------------------------------------------
 
 
-"completor configuration------------------------------------------------------
-"end of completor configuration-----------------------------------------------
-
-
 "Vimtex configuration--
 let g:vimtex_enabled = 1
 let g:vimtex_view_general_viewer = 'okular'
@@ -102,7 +87,6 @@ let g:vimtex_view_general_viewer = 'okular'
 let g:SuperTabDefaultCompletionType = "<c-n>" "choose items from top to bottom
 
 "jedi-vim configuration---------------------------------------------------
-let g:jedi#completions_enabled = 0
 let g:jedi#goto_command = "<leader>gi"
 let g:jedi#goto_assignments_command = "<leader>ga"
 let g:jedi#goto_definitions_command = ""
@@ -110,7 +94,6 @@ let g:jedi#documentation_command = "K"
 let g:jedi#usages_command = "<leader>gu"
 let g:jedi#completions_command = "<C-Space>"
 let g:jedi#rename_command = "<leader>r"
-set completeopt=menuone,longest,preview,noinsert "completor + jedi-vim autochoosing fix
 "END OF JEDI CONFIGURATION ------------------------------------------------
 
 "EVENTS--------------------------------------------------------------------
@@ -174,6 +157,7 @@ endfunction
 
 
 command Hex call ToggleHexMode()
+command F Autoformat
 
 
 let g:pdv_template_dir = $HOME ."/.vim/plugged/pdv/templates_snip"
@@ -276,7 +260,7 @@ nnoremap <leader>Pp "+P
 nnoremap <F2> :w<CR>
 imap <F2> <ESC>:w<CR>
 
-nnoremap <silent> <F3> :set hlsearch!<CR>
+nnoremap <F3> :Autoformat<CR>
 
 map <leader>n :NERDTreeToggle<CR>
 
