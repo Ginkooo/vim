@@ -56,10 +56,8 @@ Plug 'stevearc/vim-arduino'
 Plug 'lervag/vimtex' "Latex things, like \ll for continuous compilation
 Plug 'w0rp/ale' "code linting
 Plug 'davidhalter/jedi-vim'
-Plug 'bling/vim-bufferline'
 Plug 'ervandew/supertab'
 Plug 'Chiel92/vim-autoformat'
-
 call plug#end()
 
 let g:SuperTabClosePreviewOnPopupClose = 1 "close preview window on completion done
