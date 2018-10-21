@@ -58,6 +58,11 @@ Plug 'w0rp/ale' "code linting
 Plug 'davidhalter/jedi-vim'
 Plug 'ervandew/supertab'
 Plug 'Chiel92/vim-autoformat'
+Plug 'maralla/completor.vim'
+Plug 'posva/vim-vue'
+Plug 'pangloss/vim-javascript'
+Plug 'elzr/vim-json'
+Plug 'mxw/vim-jsx'
 call plug#end()
 
 let g:SuperTabClosePreviewOnPopupClose = 1 "close preview window on completion done
@@ -85,6 +90,7 @@ let g:vimtex_view_general_viewer = 'okular'
 let g:SuperTabDefaultCompletionType = "<c-n>" "choose items from top to bottom
 
 "jedi-vim configuration---------------------------------------------------
+let g:jedi#completions_enabled  = 0
 let g:jedi#goto_command = "<leader>gi"
 let g:jedi#goto_assignments_command = "<leader>ga"
 let g:jedi#goto_definitions_command = ""
