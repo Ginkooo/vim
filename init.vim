@@ -34,6 +34,8 @@ cnoremap <C-n> <Down>
 call plug#begin()
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 Plug 'sjl/badwolf'
 Plug 'kien/ctrlp.vim'
 Plug 'scrooloose/nerdtree'
@@ -288,30 +290,30 @@ nnoremap <silent> <leader>h :split<CR>
 nnoremap <silent> <leader>, :close<CR>
 
 
-inoremap <A-h> <C-\><C-N><C-w>h
-inoremap <A-j> <C-\><C-N><C-w>j
-inoremap <A-k> <C-\><C-N><C-w>k
-inoremap <A-l> <C-\><C-N><C-w>l
-nnoremap <silent> <A-h> <C-w>h
-nnoremap <silent> <A-j> <C-w>j
-nnoremap <silent> <A-k> <C-w>k
-nnoremap <silent> <A-l> <C-w>l
+inoremap <silent>  <A-h> <C-\><C-N><C-w>h
+inoremap <silent>  <A-j> <C-\><C-N><C-w>j
+inoremap <silent>  <A-k> <C-\><C-N><C-w>k
+inoremap <silent>  <A-l> <C-\><C-N><C-w>l
+nnoremap <silent>  <A-h> <C-w>h
+nnoremap <silent>  <A-j> <C-w>j
+nnoremap <silent>  <A-k> <C-w>k
+nnoremap <silent>  <A-l> <C-w>l
 
-nnoremap <silent> <A-f> :vertical resize +5<CR>
-nnoremap <silent> <A-a> :vertical resize -5<CR>
-nnoremap <silent> <A-d> :resize +5<CR>
-nnoremap <silent> <A-s> :resize -5<CR>
+nnoremap <silent>  <A-f> :vertical resize +5<CR>
+nnoremap <silent>  <A-a> :vertical resize -5<CR>
+nnoremap <silent>  <A-d> :resize +5<CR>
+nnoremap <silent>  <A-s> :resize -5<CR>
 
 
 " movement inkquickfix
-nnoremap <silent> <leader>; :grep! "\b<C-R><C-W>\b" *<CR>:cw<CR>
-nnoremap <silent> [q :cprev<CR>
-nnoremap <silent> ]q :cnext<CR>
-nnoremap <silent> [Q :cfirst<CR>
-nnoremap <silent> ]Q :clast<CR>
+nnoremap <silent>  <leader>; :grep! "\b<C-R><C-W>\b" *<CR>:cw<CR>
+nnoremap <silent>  [q :cprev<CR>
+nnoremap <silent>  ]q :cnext<CR>
+nnoremap <silent>  [Q :cfirst<CR>
+nnoremap <silent>  ]Q :clast<CR>
 
-nnoremap <silent> <C-J> <C-F>
-nnoremap <silent> <C-K> <C-B>
+nnoremap <silent>  <C-J> <C-F>
+nnoremap <silent>  <C-K> <C-B>
 
 au VimEnter * silent !xmodmap -e 'clear Lock' -e 'keycode 0x42 = Escape'
 au VimLeave * !xmodmap -e 'clear Lock' -e 'keycode 0x42 = Caps_Lock'
@@ -380,3 +382,6 @@ nnoremap <silent> <leader>gdm :Gdiff master<CR>
 "toggling things
 nnoremap <silent> <leader>tt :split<CR>:term<CR>
 nnoremap <silent> <leader>ta :ALEToggle<CR>
+
+"other
+nnoremap <silent> <leader>n :NERDTreeToggle<CR>
