@@ -63,6 +63,7 @@ Plug 'posva/vim-vue'
 Plug 'pangloss/vim-javascript'
 Plug 'elzr/vim-json'
 Plug 'mxw/vim-jsx'
+Plug 'bling/vim-bufferline'
 call plug#end()
 
 let g:SuperTabClosePreviewOnPopupClose = 1 "close preview window on completion done
@@ -141,10 +142,10 @@ function! WriteDocstring()
 endfunction
 
 " windowswap mappings
-nnoremap <silent> <A-S-H> :call WindowSwap#EasyWindowSwap()<CR><C-w>h:call WindowSwap#EasyWindowSwap()<CR>
-nnoremap <silent> <A-S-J> :call WindowSwap#EasyWindowSwap()<CR><C-w>j:call WindowSwap#EasyWindowSwap()<CR>
-nnoremap <silent> <A-S-K> :call WindowSwap#EasyWindowSwap()<CR><C-w>k:call WindowSwap#EasyWindowSwap()<CR>
-nnoremap <silent> <A-S-L> :call WindowSwap#EasyWindowSwap()<CR><C-w>l:call WindowSwap#EasyWindowSwap()<CR>
+nnoremap <silent> <silent> <A-S-H> :call WindowSwap#EasyWindowSwap()<CR><C-w>h:call WindowSwap#EasyWindowSwap()<CR>
+nnoremap <silent> <silent> <A-S-J> :call WindowSwap#EasyWindowSwap()<CR><C-w>j:call WindowSwap#EasyWindowSwap()<CR>
+nnoremap <silent> <silent> <A-S-K> :call WindowSwap#EasyWindowSwap()<CR><C-w>k:call WindowSwap#EasyWindowSwap()<CR>
+nnoremap <silent> <silent> <A-S-L> :call WindowSwap#EasyWindowSwap()<CR><C-w>l:call WindowSwap#EasyWindowSwap()<CR>
 
 
 " Hex editor vim
@@ -250,7 +251,7 @@ set undofile
 set undodir=~/.vim/undo
 
 
-nnoremap <F1> <nop>
+nnoremap <silent> <F1> <nop>
 imap <F1> <nop>
 vmap <F1> <nop>
 
@@ -258,59 +259,59 @@ vmap <leader>y "+y
 vmap <leader>d "+d
 vmap <leader>pp "+p
 vmap <leader>Pp "+P
-nnoremap <leader>pp "+p
-nnoremap <leader>Pp "+P
+nnoremap <silent> <leader>pp "+p
+nnoremap <silent> <leader>Pp "+P
 
-nnoremap <F2> :w<CR>
+nnoremap <silent> <F2> :w<CR>
 imap <F2> <ESC>:w<CR>
 
-nnoremap <F3> :Autoformat<CR>
+nnoremap <silent> <F3> :Autoformat<CR>
 
 map <leader>n :NERDTreeToggle<CR>
 
-nnoremap B ^
-nnoremap E $
+nnoremap <silent> B ^
+nnoremap <silent> E $
 
-nnoremap $ <nop>
-nnoremap ^ <nop>
+nnoremap <silent> $ <nop>
+nnoremap <silent> ^ <nop>
 
-nnoremap <CR> G
+nnoremap <silent> <CR> G
 
-nnoremap <leader>= <C-W>=
+nnoremap <silent> <leader>= <C-W>=
 
-nnoremap <leader>k :bnext<CR>
-nnoremap <leader>j :bprevious<CR>
-nnoremap <leader>q :bdelete<CR>
-nnoremap <leader>d :call WriteDocstring()<CR>
-nnoremap <leader>v :vsplit<CR>
-nnoremap <leader>h :split<CR>
-nnoremap <leader>, :close<CR>
+nnoremap <silent> <leader>k :bnext<CR>
+nnoremap <silent> <leader>j :bprevious<CR>
+nnoremap <silent> <leader>q :bdelete<CR>
+nnoremap <silent> <leader>d :call WriteDocstring()<CR>
+nnoremap <silent> <leader>v :vsplit<CR>
+nnoremap <silent> <leader>h :split<CR>
+nnoremap <silent> <leader>, :close<CR>
 
 
 inoremap <A-h> <C-\><C-N><C-w>h
 inoremap <A-j> <C-\><C-N><C-w>j
 inoremap <A-k> <C-\><C-N><C-w>k
 inoremap <A-l> <C-\><C-N><C-w>l
-nnoremap <A-h> <C-w>h
-nnoremap <A-j> <C-w>j
-nnoremap <A-k> <C-w>k
-nnoremap <A-l> <C-w>l
+nnoremap <silent> <A-h> <C-w>h
+nnoremap <silent> <A-j> <C-w>j
+nnoremap <silent> <A-k> <C-w>k
+nnoremap <silent> <A-l> <C-w>l
 
-nnoremap <A-f> :vertical resize +5<CR>
-nnoremap <A-a> :vertical resize -5<CR>
-nnoremap <A-d> :resize +5<CR>
-nnoremap <A-s> :resize -5<CR>
+nnoremap <silent> <A-f> :vertical resize +5<CR>
+nnoremap <silent> <A-a> :vertical resize -5<CR>
+nnoremap <silent> <A-d> :resize +5<CR>
+nnoremap <silent> <A-s> :resize -5<CR>
 
 
 " movement inkquickfix
-nnoremap <leader>; :grep! "\b<C-R><C-W>\b" *<CR>:cw<CR>
-nnoremap [q :cprev<CR>
-nnoremap ]q :cnext<CR>
-nnoremap [Q :cfirst<CR>
-nnoremap ]Q :clast<CR>
+nnoremap <silent> <leader>; :grep! "\b<C-R><C-W>\b" *<CR>:cw<CR>
+nnoremap <silent> [q :cprev<CR>
+nnoremap <silent> ]q :cnext<CR>
+nnoremap <silent> [Q :cfirst<CR>
+nnoremap <silent> ]Q :clast<CR>
 
-nnoremap <C-J> <C-F>
-nnoremap <C-K> <C-B>
+nnoremap <silent> <C-J> <C-F>
+nnoremap <silent> <C-K> <C-B>
 
 au VimEnter * silent !xmodmap -e 'clear Lock' -e 'keycode 0x42 = Escape'
 au VimLeave * !xmodmap -e 'clear Lock' -e 'keycode 0x42 = Caps_Lock'
@@ -322,7 +323,7 @@ map <C-O> o<ESC>ko
 vmap v <plug>(expand_region_expand)
 vmap <C-V> <plug>(expand_region_shrink)
 
-nnoremap <TAB> %
+nnoremap <silent> <TAB> %
 vnoremap <TAB> %
 
 inoremap jj <ESC>
@@ -330,7 +331,7 @@ inoremap jj <ESC>
 let g:UltiSnipsExpandTrigger =  'nothing'
 
 
-nnoremap <leader>i :Gpl<CR>
+nnoremap <silent> <leader>i :Gpl<CR>
 let g:licenses_copyright_holders_name = 'Piotr Czajka <czajka@protonmail.com>'
 let g:licenses_authors_name = 'Piotr Czajka <czajka@protonmail.com>'
 
@@ -345,8 +346,8 @@ set wildmenu
 set wildmode=full
 
 "filetype specific keymaps
-autocmd FileType python nnoremap <leader>pd oimport ipdb; ipdb.set_trace()<ESC>
-autocmd FileType python nnoremap <leader>Pd Oimport ipdb; ipdb.set_trace()<ESC>
+autocmd FileType python nnoremap <silent> <leader>pd oimport ipdb; ipdb.set_trace()<ESC>
+autocmd FileType python nnoremap <silent> <leader>Pd Oimport ipdb; ipdb.set_trace()<ESC>
 autocmd FileType html set tabstop=2
 autocmd FileType html set shiftwidth=2
 autocmd FileType vue set tabstop=2
@@ -355,27 +356,27 @@ autocmd FileType javascript.jsx set tabstop=2
 autocmd FileType javascript.jsx set shiftwidth=2
 
 "real lines and display lines
-nnoremap k gk
-nnoremap gk k
-nnoremap j gj
-nnoremap gj j
+nnoremap <silent> k gk
+nnoremap <silent> gk k
+nnoremap <silent> j gj
+nnoremap <silent> gj j
 
 
 " move words under home row
-nnoremap H b
-nnoremap L w
+nnoremap <silent> H b
+nnoremap <silent> L w
 
 " maximaze/restore window
-nnoremap <A-m> :MaximizerToggle!<CR>
+nnoremap <silent> <A-m> :MaximizerToggle!<CR>
 
-nnoremap <leader>. :pclose<CR>
+nnoremap <silent> <leader>. :pclose<CR>
 
 "git key bindings
-nnoremap <leader>ghs <ESC>:GitGutterStageHunk<CR>
-nnoremap <leader>ghu <ESC>:GitGutterUndoHunk<CR>
-nnoremap <leader>ghp <ESC>:GitGutterPreviewHunk<CR>
-nnoremap <leader>gdm :Gdiff master<CR>
+nnoremap <silent> <leader>ghs <ESC>:GitGutterStageHunk<CR>
+nnoremap <silent> <leader>ghu <ESC>:GitGutterUndoHunk<CR>
+nnoremap <silent> <leader>ghp <ESC>:GitGutterPreviewHunk<CR>
+nnoremap <silent> <leader>gdm :Gdiff master<CR>
 
 "toggling things
-nnoremap <leader>tt :split<CR>:term<CR>
-nnoremap <leader>ta :ALEToggle<CR>
+nnoremap <silent> <leader>tt :split<CR>:term<CR>
+nnoremap <silent> <leader>ta :ALEToggle<CR>
