@@ -34,6 +34,8 @@ cnoremap <C-n> <Down>
 call plug#begin()
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 Plug 'sjl/badwolf'
 Plug 'kien/ctrlp.vim'
 Plug 'scrooloose/nerdtree'
@@ -278,39 +280,39 @@ nnoremap <CR> G
 
 nnoremap <leader>= <C-W>=
 
-nnoremap <leader>k :bnext<CR>
-nnoremap <leader>j :bprevious<CR>
-nnoremap <leader>q :bdelete<CR>
-nnoremap <leader>d :call WriteDocstring()<CR>
-nnoremap <leader>v :vsplit<CR>
-nnoremap <leader>h :split<CR>
-nnoremap <leader>, :close<CR>
+nnoremap <silent> <leader>k :bnext<CR>
+nnoremap <silent> <leader>j :bprevious<CR>
+nnoremap <silent> <leader>q :bdelete<CR>
+nnoremap <silent> <leader>d :call WriteDocstring()<CR>
+nnoremap <silent> <leader>v :vsplit<CR>
+nnoremap <silent> <leader>h :split<CR>
+nnoremap <silent> <leader>, :close<CR>
 
 
-inoremap <A-h> <C-\><C-N><C-w>h
-inoremap <A-j> <C-\><C-N><C-w>j
-inoremap <A-k> <C-\><C-N><C-w>k
-inoremap <A-l> <C-\><C-N><C-w>l
-nnoremap <A-h> <C-w>h
-nnoremap <A-j> <C-w>j
-nnoremap <A-k> <C-w>k
-nnoremap <A-l> <C-w>l
+inoremap <silent>  <A-h> <C-\><C-N><C-w>h
+inoremap <silent>  <A-j> <C-\><C-N><C-w>j
+inoremap <silent>  <A-k> <C-\><C-N><C-w>k
+inoremap <silent>  <A-l> <C-\><C-N><C-w>l
+nnoremap <silent>  <A-h> <C-w>h
+nnoremap <silent>  <A-j> <C-w>j
+nnoremap <silent>  <A-k> <C-w>k
+nnoremap <silent>  <A-l> <C-w>l
 
-nnoremap <A-f> :vertical resize +5<CR>
-nnoremap <A-a> :vertical resize -5<CR>
-nnoremap <A-d> :resize +5<CR>
-nnoremap <A-s> :resize -5<CR>
+nnoremap <silent>  <A-f> :vertical resize +5<CR>
+nnoremap <silent>  <A-a> :vertical resize -5<CR>
+nnoremap <silent>  <A-d> :resize +5<CR>
+nnoremap <silent>  <A-s> :resize -5<CR>
 
 
 " movement inkquickfix
-nnoremap <leader>; :grep! "\b<C-R><C-W>\b" *<CR>:cw<CR>
-nnoremap [q :cprev<CR>
-nnoremap ]q :cnext<CR>
-nnoremap [Q :cfirst<CR>
-nnoremap ]Q :clast<CR>
+nnoremap <silent>  <leader>; :grep! "\b<C-R><C-W>\b" *<CR>:cw<CR>
+nnoremap <silent>  [q :cprev<CR>
+nnoremap <silent>  ]q :cnext<CR>
+nnoremap <silent>  [Q :cfirst<CR>
+nnoremap <silent>  ]Q :clast<CR>
 
-nnoremap <C-J> <C-F>
-nnoremap <C-K> <C-B>
+nnoremap <silent>  <C-J> <C-F>
+nnoremap <silent>  <C-K> <C-B>
 
 au VimEnter * silent !xmodmap -e 'clear Lock' -e 'keycode 0x42 = Escape'
 au VimLeave * !xmodmap -e 'clear Lock' -e 'keycode 0x42 = Caps_Lock'
@@ -379,3 +381,6 @@ nnoremap <leader>gdm :Gdiff master<CR>
 "toggling things
 nnoremap <leader>tt :split<CR>:term<CR>
 nnoremap <leader>ta :ALEToggle<CR>
+
+"other
+nnoremap <silent> <leader>n :NERDTreeToggle<CR>
