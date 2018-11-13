@@ -264,7 +264,7 @@ vmap <leader>Pp "+P
 nnoremap <silent> <leader>pp "+p
 nnoremap <silent> <leader>Pp "+P
 
-nnoremap <silent> <F2> :w<CR>
+nnoremap <silent> <F2> :w<CR>i<ESC>
 imap <F2> <ESC>:w<CR>
 
 nnoremap <silent> <F3> :Autoformat<CR>
@@ -385,3 +385,6 @@ nnoremap <silent> <leader>ta :ALEToggle<CR>
 
 "other
 nnoremap <silent> <leader>n :NERDTreeToggle<CR>
+
+map <silent> <A-u> <C-u>
+map <silent> <A-d> <C-d>
