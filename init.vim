@@ -32,11 +32,11 @@ cnoremap <C-n> <Down>
 
 
 call plug#begin()
+Plug 'flazz/vim-colorschemes'
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'sjl/badwolf'
 Plug 'kien/ctrlp.vim'
 Plug 'scrooloose/nerdtree'
 Plug 'heavenshell/vim-jsdoc'
@@ -192,11 +192,8 @@ let g:airline#extensions#bufferline#enabled=0
 let g:airline#extensions#tabline#enabled=1
 let g:airline#extensions#tabline#fnamemod=':t'
 
-colorscheme badwolf
+colorscheme 1989
 set guifont=Hack:h8:cEASTEUROPE
-let g:badwolf_darkgutter=1
-set guioptions-=r
-set guioptions-=L
 
 let mapleader="\<Space>"
 set enc=utf-8
