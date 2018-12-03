@@ -56,16 +56,30 @@ Plug 'tpope/vim-surround'
 Plug 'fatih/vim-go'
 Plug 'stevearc/vim-arduino'
 Plug 'lervag/vimtex' "Latex things, like \ll for continuous compilation
-Plug 'w0rp/ale' "code linting
-Plug 'davidhalter/jedi-vim'
 Plug 'ervandew/supertab'
 Plug 'Chiel92/vim-autoformat'
-Plug 'maralla/completor.vim'
 Plug 'posva/vim-vue'
 Plug 'pangloss/vim-javascript'
 Plug 'elzr/vim-json'
 Plug 'mxw/vim-jsx'
 Plug 'bling/vim-bufferline'
+
+Plug 'autozimu/LanguageClient-neovim', {
+    \ 'branch': 'next',
+    \ 'do': 'bash install.sh',
+    \ }
+
+Plug 'junegunn/fzf'
+
+if has('nvim')
+  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+else
+  Plug 'Shougo/deoplete.nvim'
+  Plug 'roxma/nvim-yarp'
+  Plug 'roxma/vim-hug-neovim-rpc'
+endif
+let g:deoplete#enable_at_startup = 1
+
 call plug#end()
 
 let g:SuperTabClosePreviewOnPopupClose = 1 "close preview window on completion done
@@ -192,7 +206,7 @@ let g:airline#extensions#bufferline#enabled=0
 let g:airline#extensions#tabline#enabled=1
 let g:airline#extensions#tabline#fnamemod=':t'
 
-colorscheme 1989
+colorscheme badwolf
 set guifont=Hack:h8:cEASTEUROPE
 
 let mapleader="\<Space>"
@@ -385,3 +399,13 @@ nnoremap <silent> <leader>n :NERDTreeToggle<CR>
 
 map <silent> <A-u> <C-u>
 map <silent> <A-d> <C-d>
+
+"Language server config
+
+let g:LanguageClient_serverCommands = {
+    \ 'python': [system('which pyls')[0:-2], '--log-file', '/tmp/pyls_log.txt', '-vvvvvv'],
+    \ }
+
+let g:LanguageClient_loggingLevel = 'DEBUG'
+let g:LanguageClient_loggingFile =  expand('~/.local/share/nvim/LanguageClient.log')
+let g:LanguageClient_serverStderr = expand('~/.local/share/nvim/LanguageServer.log')
