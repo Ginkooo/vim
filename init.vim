@@ -30,6 +30,8 @@ set shell=/bin/bash
 cnoremap <C-p> <Up>
 cnoremap <C-n> <Down>
 
+set completeopt=noinsert,menuone,noselect
+
 
 call plug#begin()
 Plug 'flazz/vim-colorschemes'
@@ -63,6 +65,8 @@ Plug 'pangloss/vim-javascript'
 Plug 'elzr/vim-json'
 Plug 'mxw/vim-jsx'
 Plug 'bling/vim-bufferline'
+Plug 'roxma/nvim-yarp'
+Plug 'ncm2/ncm2'
 
 Plug 'autozimu/LanguageClient-neovim', {
     \ 'branch': 'next',
@@ -88,11 +92,6 @@ let g:SuperTabClosePreviewOnPopupClose = 1 "close preview window on completion d
 let g:gitgutter_map_keys = 0 "turn off default mappings
 "end of git gutter configuration--------------------------------------------
 
-"vim-racer configuration
-au FileType rust nmap <leader>gd <Plug>(rust-def)
-au FileType rust nmap <leader>K <Plug>(rust-doc)
-"end of vim-racer configuration
-
 
 "ALE configuration-----------------------------------------------------------
 let g:ale_linters = {'rust': ['rls', 'cargo', 'rustc']}
@@ -105,17 +104,6 @@ let g:vimtex_view_general_viewer = 'okular'
 
 "supertab configuration---------------------------------------------------
 let g:SuperTabDefaultCompletionType = "<c-n>" "choose items from top to bottom
-
-"jedi-vim configuration---------------------------------------------------
-let g:jedi#completions_enabled  = 0
-let g:jedi#goto_command = "<leader>gi"
-let g:jedi#goto_assignments_command = "<leader>ga"
-let g:jedi#goto_definitions_command = ""
-let g:jedi#documentation_command = "K"
-let g:jedi#usages_command = "<leader>gu"
-let g:jedi#completions_command = "<C-Space>"
-let g:jedi#rename_command = "<leader>r"
-"END OF JEDI CONFIGURATION ------------------------------------------------
 
 "EVENTS--------------------------------------------------------------------
 
@@ -400,7 +388,10 @@ nnoremap <silent> <leader>n :NERDTreeToggle<CR>
 map <silent> <A-u> <C-u>
 map <silent> <A-d> <C-d>
 
+
 "Language server config
+
+autocmd BufEnter  *  call ncm2#enable_for_buffer()
 
 let g:LanguageClient_serverCommands = {
     \ 'python': [system('which pyls')[0:-2], '--log-file', '/tmp/pyls_log.txt', '-vvvvvv'],
@@ -409,3 +400,7 @@ let g:LanguageClient_serverCommands = {
 let g:LanguageClient_loggingLevel = 'DEBUG'
 let g:LanguageClient_loggingFile =  expand('~/.local/share/nvim/LanguageClient.log')
 let g:LanguageClient_serverStderr = expand('~/.local/share/nvim/LanguageServer.log')
+
+nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
+nnoremap <silent> <leader>ld :call LanguageClient#textDocument_definition()<CR>
+nnoremap <silent> <leader>lr :call LanguageClient#textDocument_rename()<CR>
