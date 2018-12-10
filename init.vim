@@ -391,10 +391,15 @@ map <silent> <A-d> <C-d>
 
 "Language server config
 
+Plug 'ncm2/ncm2-bufword'
+Plug 'ncm2/ncm2-tmux'
+Plug 'ncm2/ncm2-path'
+
 autocmd BufEnter  *  call ncm2#enable_for_buffer()
 
 let g:LanguageClient_serverCommands = {
     \ 'python': [system('which pyls')[0:-2], '--log-file', '/tmp/pyls_log.txt', '-vvvvvv'],
+    \ 'cpp': [system('which cquery')[0:-2]]
     \ }
 
 let g:LanguageClient_loggingLevel = 'DEBUG'
