@@ -368,6 +368,11 @@ autocmd FileType vue set shiftwidth=2
 autocmd FileType javascript.jsx set tabstop=2
 autocmd FileType javascript.jsx set shiftwidth=2
 
+autocmd FileType go nnoremap <silent> <F9> :!go run %<CR>
+autocmd FileType go inoremap <silent> <F9> <ESC>:!go run %<CR>
+autocmd FileType python nnoremap <silent> <F9> :!python %<CR>
+autocmd FileType python inoremap <silent> <F9> <ESC>:!python %<CR>
+
 "real lines and display lines
 nnoremap <silent> k gk
 nnoremap <silent> gk k
