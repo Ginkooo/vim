@@ -55,7 +55,6 @@ Plug 'wesQ3/vim-windowswap'
 Plug 'szw/vim-maximizer'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
-Plug 'fatih/vim-go'
 Plug 'stevearc/vim-arduino'
 Plug 'lervag/vimtex' "Latex things, like \ll for continuous compilation
 Plug 'ervandew/supertab'
@@ -404,7 +403,8 @@ autocmd BufEnter  *  call ncm2#enable_for_buffer()
 
 let g:LanguageClient_serverCommands = {
     \ 'python': [system('which pyls')[0:-2], '--log-file', '/tmp/pyls_log.txt', '-vvvvvv'],
-    \ 'cpp': [system('which cquery')[0:-2]]
+    \ 'cpp': [system('which cquery')[0:-2]],
+    \ 'go': [system('which go-langserver')[0:-2], '-gocodecompletion']
     \ }
 
 let g:LanguageClient_loggingLevel = 'DEBUG'
