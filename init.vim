@@ -355,7 +355,7 @@ autocmd FileType vue set shiftwidth=2
 autocmd FileType javascript.jsx set tabstop=2
 autocmd FileType javascript.jsx set shiftwidth=2
 
-autocmd FileType go nnoremap <silent> <F9> :!go run %<CR>
+autocmd FileType go nnoremap <silent> <F9> :!go run *.go<CR>
 autocmd FileType go inoremap <silent> <F9> <ESC>:!go run %<CR>
 autocmd FileType python nnoremap <silent> <F9> :!python %<CR>
 autocmd FileType python inoremap <silent> <F9> <ESC>:!python %<CR>
@@ -404,7 +404,8 @@ autocmd BufEnter  *  call ncm2#enable_for_buffer()
 let g:LanguageClient_serverCommands = {
     \ 'python': [system('which pyls')[0:-2], '--log-file', '/tmp/pyls_log.txt', '-vvvvvv'],
     \ 'cpp': [system('which cquery')[0:-2]],
-    \ 'go': [system('which go-langserver')[0:-2], '-gocodecompletion']
+    \ 'go': [system('which go-langserver')[0:-2], '-gocodecompletion'],
+    \ 'rust': [system('which rls')[0:-2]]
     \ }
 
 let g:LanguageClient_loggingLevel = 'DEBUG'
