@@ -402,9 +402,9 @@ Plug 'ncm2/ncm2-path'
 autocmd BufEnter  *  call ncm2#enable_for_buffer()
 
 let g:LanguageClient_serverCommands = {
-    \ 'python': [system('which pyls')[0:-2], '--log-file', '/tmp/pyls_log.txt', '-vvvvvv'],
+    \ 'python': ['/usr/bin/pyls', '--log-file', '/tmp/pyls_log.txt', '-vvvvvv'],
     \ 'cpp': [system('which cquery')[0:-2]],
-    \ 'go': [system('which go-langserver')[0:-2], '-gocodecompletion'],
+    \ 'go': [system('which go-langserver')[0:-2], '-gocodecompletion', '-lint-tool', 'golint'],
     \ 'rust': [system('which rls')[0:-2]]
     \ }
 
