@@ -403,7 +403,7 @@ autocmd BufEnter  *  call ncm2#enable_for_buffer()
 
 let g:LanguageClient_serverCommands = {
     \ 'python': ['/usr/bin/pyls', '--log-file', '/tmp/pyls_log.txt', '-vvvvvv'],
-    \ 'cpp': [system('which cquery')[0:-2]],
+    \ 'cpp': [system('which cquery')[0:-2], '--log-file', '/tmp/cquery.log'],
     \ 'go': [system('which go-langserver')[0:-2], '-gocodecompletion', '-lint-tool', 'golint'],
     \ 'rust': [system('which rls')[0:-2]]
     \ }
@@ -415,3 +415,4 @@ let g:LanguageClient_serverStderr = expand('~/.local/share/nvim/LanguageServer.l
 nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
 nnoremap <silent> <leader>ld :call LanguageClient#textDocument_definition()<CR>
 nnoremap <silent> <leader>lr :call LanguageClient#textDocument_rename()<CR>
+nnoremap <silent> <leader>lf :call LanguageClient#textDocument_formatting()<CR>
