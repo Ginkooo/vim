@@ -64,26 +64,22 @@ Plug 'pangloss/vim-javascript'
 Plug 'elzr/vim-json'
 Plug 'mxw/vim-jsx'
 Plug 'bling/vim-bufferline'
-Plug 'roxma/nvim-yarp'
-Plug 'ncm2/ncm2'
-
+Plug 'junegunn/fzf'
 Plug 'autozimu/LanguageClient-neovim', {
     \ 'branch': 'next',
     \ 'do': 'bash install.sh',
     \ }
 
-Plug 'junegunn/fzf'
-
-if has('nvim')
-  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-else
-  Plug 'Shougo/deoplete.nvim'
-  Plug 'roxma/nvim-yarp'
-  Plug 'roxma/vim-hug-neovim-rpc'
-endif
-let g:deoplete#enable_at_startup = 1
-
 call plug#end()
+
+let c='a'
+while c <= 'z'
+  exec "set <A-".c.">=\e".c
+  exec "imap \e".c." <A-".c.">"
+  let c = nr2char(1+char2nr(c))
+endw
+
+set timeout ttimeoutlen=50
 
 let g:SuperTabClosePreviewOnPopupClose = 1 "close preview window on completion done
 
@@ -145,10 +141,10 @@ function! WriteDocstring()
 endfunction
 
 " windowswap mappings
-nnoremap <silent> <silent> <A-S-H> :call WindowSwap#EasyWindowSwap()<CR><C-w>h:call WindowSwap#EasyWindowSwap()<CR>
-nnoremap <silent> <silent> <A-S-J> :call WindowSwap#EasyWindowSwap()<CR><C-w>j:call WindowSwap#EasyWindowSwap()<CR>
-nnoremap <silent> <silent> <A-S-K> :call WindowSwap#EasyWindowSwap()<CR><C-w>k:call WindowSwap#EasyWindowSwap()<CR>
-nnoremap <silent> <silent> <A-S-L> :call WindowSwap#EasyWindowSwap()<CR><C-w>l:call WindowSwap#EasyWindowSwap()<CR>
+nnoremap <silent> <silent> <ALT-S-H> :call WindowSwap#EasyWindowSwap()<CR><C-w>h:call WindowSwap#EasyWindowSwap()<CR>
+nnoremap <silent> <silent> <ALT-S-J> :call WindowSwap#EasyWindowSwap()<CR><C-w>j:call WindowSwap#EasyWindowSwap()<CR>
+nnoremap <silent> <silent> <ALT-S-K> :call WindowSwap#EasyWindowSwap()<CR><C-w>k:call WindowSwap#EasyWindowSwap()<CR>
+nnoremap <silent> <silent> <ALT-S-L> :call WindowSwap#EasyWindowSwap()<CR><C-w>l:call WindowSwap#EasyWindowSwap()<CR>
 
 
 " Hex editor vim
@@ -288,19 +284,19 @@ nnoremap <silent> <leader>h :split<CR>
 nnoremap <silent> <leader>, :close<CR>
 
 
-inoremap <silent>  <A-h> <C-\><C-N><C-w>h
-inoremap <silent>  <A-j> <C-\><C-N><C-w>j
-inoremap <silent>  <A-k> <C-\><C-N><C-w>k
-inoremap <silent>  <A-l> <C-\><C-N><C-w>l
-nnoremap <silent>  <A-h> <C-w>h
-nnoremap <silent>  <A-j> <C-w>j
-nnoremap <silent>  <A-k> <C-w>k
-nnoremap <silent>  <A-l> <C-w>l
+inoremap <M-h> <C-w>h
+inoremap <M-j> <C-w>j
+inoremap <M-k> <C-w>k
+inoremap <M-l> <C-w>l
+nnoremap <M-h> <C-w>h
+nnoremap <M-j> <C-w>j
+nnoremap <M-k> <C-w>k
+nnoremap <M-l> <C-w>l
 
-nnoremap <silent>  <A-f> :vertical resize +5<CR>
-nnoremap <silent>  <A-a> :vertical resize -5<CR>
-nnoremap <silent>  <A-d> :resize +5<CR>
-nnoremap <silent>  <A-s> :resize -5<CR>
+nnoremap <M-f> :vertical resize +5<CR>
+nnoremap <M-a> :vertical resize -5<CR>
+nnoremap <M-d> :resize +5<CR>
+nnoremap <M-s> :resize -5<CR>
 
 
 " movement inkquickfix
@@ -393,14 +389,6 @@ map <silent> <A-u> <C-u>
 map <silent> <A-d> <C-d>
 
 
-"Language server config
-
-Plug 'ncm2/ncm2-bufword'
-Plug 'ncm2/ncm2-tmux'
-Plug 'ncm2/ncm2-path'
-
-autocmd BufEnter  *  call ncm2#enable_for_buffer()
-
 let g:LanguageClient_serverCommands = {
     \ 'python': ['/usr/bin/pyls', '--log-file', '/tmp/pyls_log.txt', '-vvvvvv'],
     \ 'cpp': [system('which cquery')[0:-2], '--log-file', '/tmp/cquery.log'],
@@ -409,8 +397,8 @@ let g:LanguageClient_serverCommands = {
     \ }
 
 let g:LanguageClient_loggingLevel = 'DEBUG'
-let g:LanguageClient_loggingFile =  expand('~/.local/share/nvim/LanguageClient.log')
-let g:LanguageClient_serverStderr = expand('~/.local/share/nvim/LanguageServer.log')
+let g:LanguageClient_loggingFile =  expand('~/.local/share/vim/LanguageClient.log')
+let g:LanguageClient_serverStderr = expand('~/.local/share/vim/LanguageServer.log')
 
 nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
 nnoremap <silent> <leader>ld :call LanguageClient#textDocument_definition()<CR>
