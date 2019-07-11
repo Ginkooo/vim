@@ -65,10 +65,7 @@ Plug 'elzr/vim-json'
 Plug 'mxw/vim-jsx'
 Plug 'bling/vim-bufferline'
 Plug 'junegunn/fzf'
-Plug 'autozimu/LanguageClient-neovim', {
-    \ 'branch': 'next',
-    \ 'do': 'bash install.sh',
-    \ }
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 call plug#end()
 
