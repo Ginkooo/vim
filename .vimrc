@@ -223,6 +223,7 @@ set lazyredraw
 set list listchars=tab:\ \ ,trail:@
 
 set laststatus=2
+set statusline+=%{coc#status()}
 
 set guioptions-=T
 
@@ -397,7 +398,17 @@ let g:LanguageClient_loggingLevel = 'DEBUG'
 let g:LanguageClient_loggingFile =  expand('~/.local/share/vim/LanguageClient.log')
 let g:LanguageClient_serverStderr = expand('~/.local/share/vim/LanguageServer.log')
 
-nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
-nnoremap <silent> <leader>ld :call LanguageClient#textDocument_definition()<CR>
-nnoremap <silent> <leader>lr :call LanguageClient#textDocument_rename()<CR>
-nnoremap <silent> <leader>lf :call LanguageClient#textDocument_formatting()<CR>
+nmap <silent> K :call <SID>show_documentation()<CR>
+nmap <silent> <leader>ld <Plug>(coc-definition)
+nmap <silent> <leader>lu <Plug>(coc-references)
+
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  else
+    call CocAction('doHover')
+  endif
+endfunction
+
+" Highlight symbol under cursor on CursorHold
+autocmd CursorHold * silent call CocActionAsync('highlight')
