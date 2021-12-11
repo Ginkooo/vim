@@ -21,11 +21,15 @@ filetype plugin indent on
 
 set nobackup
 set noswapfile
+set nospell
+set clipboard=unnamedplus
 
 set history=200
 
 set shell=/bin/bash
+set foldlevel=99
 
+syntax on
 
 cnoremap <C-p> <Up>
 cnoremap <C-n> <Down>
@@ -34,6 +38,8 @@ set completeopt=noinsert,menuone,noselect
 
 
 call plug#begin()
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
+Plug 'pseewald/vim-anyfold'
 Plug 'flazz/vim-colorschemes'
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
@@ -43,7 +49,7 @@ Plug 'kien/ctrlp.vim'
 Plug 'scrooloose/nerdtree'
 Plug 'heavenshell/vim-jsdoc'
 Plug 'jistr/vim-nerdtree-tabs'
-Plug 'heavenshell/vim-pydocstring'
+Plug 'heavenshell/vim-pydocstring', {'do': 'make install'}
 Plug 'tobyS/pdv'
 Plug 'Valloric/MatchTagAlways'
 Plug 'antoyo/vim-licenses'
@@ -66,8 +72,11 @@ Plug 'mxw/vim-jsx'
 Plug 'bling/vim-bufferline'
 Plug 'junegunn/fzf'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'skywind3000/vim-preview'
+Plug 'christoomey/vim-system-copy'
 
 call plug#end()
+
 
 let c='a'
 while c <= 'z'
@@ -83,6 +92,11 @@ let g:SuperTabClosePreviewOnPopupClose = 1 "close preview window on completion d
 "Gitgutter configuration----------------------------------------------------
 let g:gitgutter_map_keys = 0 "turn off default mappings
 "end of git gutter configuration--------------------------------------------
+
+let g:pydocstring_doq_path = "/usr/bin/doq"
+
+
+let g:tex_flavor = 'latex'
 
 
 "ALE configuration-----------------------------------------------------------
@@ -169,11 +183,11 @@ if executable('ag')
   set grepprg=ag\ --nogroup\ --nocolor
 
   " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
-let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
-
-  " ag is fast enough that CtrlP doesn't need to cache
+  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
   let g:ctrlp_use_caching = 0
 endif
+
+let g:ctrlp_custom_ignore = 'node_modules'
 
 
 let g:airline_theme='powerlineish'
@@ -199,8 +213,6 @@ set fileencoding=utf-8
 set autoindent
 set smartindent
 
-
-syntax on
 
 set number
 set relativenumber
@@ -281,6 +293,11 @@ nnoremap <silent> <leader>v :vsplit<CR>
 nnoremap <silent> <leader>h :split<CR>
 nnoremap <silent> <leader>, :close<CR>
 
+inoremap <expr> <TAB> pumvisible() ? "\<C-y>" : "\<CR>"
+inoremap <expr> <Esc> pumvisible() ? "\<C-e>" : "\<Esc>"
+inoremap <expr> <C-j> pumvisible() ? "\<C-n>" : "\<Down>"
+inoremap <expr> <C-k> pumvisible() ? "\<C-p>" : "\<Up>"
+
 
 inoremap <M-h> <C-w>h
 inoremap <M-j> <C-w>j
@@ -340,6 +357,7 @@ set wildmenu
 set wildmode=full
 
 "filetype specific keymaps
+autocmd Filetype * AnyFoldActivate
 autocmd FileType python nnoremap <silent> <leader>pd oimport ipdb; ipdb.set_trace()<ESC>
 autocmd FileType python nnoremap <silent> <leader>Pd Oimport ipdb; ipdb.set_trace()<ESC>
 autocmd FileType html set tabstop=2
